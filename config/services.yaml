@@ -7,7 +7,7 @@ parameters:
     uploads_dir_name: 'uploads'
     uploads_base_url: '%env(SITE_BASE_URL)%/%uploads_dir_name%'
     site_temporal: '%env(SITE_TEMPORAL)%'
-    image_directory : '%kernel.project_dir%/public/image'
+    image_directory : '%kernel.project_dir%/public_html/image'
 
 services:
     # default configuration for services in *this* file
@@ -16,7 +16,7 @@ services:
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
 
         bind:
-            $uploadsPath: '%kernel.project_dir%/public/uploads'
+            $uploadsPath: '%kernel.project_dir%/public_html/uploads'
             $pathTemplate: '%kernel.project_dir%/templates'
             $isDebug: '%kernel.debug%'
             $publicUploadsFilesystem: '@oneup_flysystem.public_uploads_filesystem_filesystem'
