@@ -7,13 +7,6 @@
                 Reservas
             </a>
         </li>
-
-        {# <li class="nav-item ml-auto mb-2 mb-lg-0"> #}
-        {# <a class="nav-link" href="{{ path('reserva_consulta') }}"> #}
-        {# <b>Consulta tú reserva</b> #}
-        {# </a> #}
-        {# </li> #}
-
     </ul>
 
     <!--Right -->
@@ -35,13 +28,11 @@
                     {% endif %}
                     {% if is_granted('ROLE_RESERVA') %}
                         <a class="dropdown-item" href="{{ path('celebracion_index') }}">Ver Celebraciones</a>
-                        {# <a class="dropdown-item" href="{{ path('meta_base_edit', {'id': base.id}) }}">Editar datos metabase</a> #}
+                         <a class="dropdown-item" href="{{ path('meta_base_edit', {'id': base.id}) }}">Editar metabase</a>
                         <a class="dropdown-item" href="{{ path('invitado_index') }}">Ver Invitados</a>
                         <a class="dropdown-item" href="{{ path('reserva_lectura') }}">Lectura QR</a>
                     {% endif %}
                     {% if is_granted('ROLE_ADMIN') %}
-                        <a class="dropdown-item" href="{{ path('index_alameda_index') }}">Editar datos index</a>
-                        {# <a class="dropdown-item" href="{{ path('meta_base_edit', {'id': base.id}) }}">Editar datos metabase</a> #}
                         <a class="dropdown-item" href="{{ path('app_registro') }}">Registrar Usuario</a>
                     {% endif %}
                     <a class="dropdown-item" href="{{ path('app_logout') }}">Cerrar Sesión</a>

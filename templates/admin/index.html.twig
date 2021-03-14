@@ -1,4 +1,4 @@
-{% extends 'base_admin.html.twig' %}
+{% extends 'base_admin_board.html.twig' %}
 
 {% block title %}Admin {% endblock %}
 
@@ -24,15 +24,81 @@
 {% endblock %}
 
 {% block content %}
-    <div class="row">
+    <div class="row vh-100">
+        {% if (is_granted("ROLE_ADMIN")) %}
+            <div class="card col-sm-4 col-lg-3 mx-auto ">
+                <a class="btn btn-secondary" href="{{ path('meta_base_index') }}">
+                    <div class="row no-gutters">
+                        <div class="col-md-3 align-self-center text-center">
+                            <i class="fas fa-map fa-4x text-primary"></i>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Meta datos</h5>
+                                <p class="card-text">
+                                    Los datos que identifican tu web
+                                </p>
+                                <p class="card-text">
+                                    <small class="text-secondary">
+                                        <i class="fas fa-mouse-pointer"></i> Administrar
+                                    </small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {% endif %}
         {% if (is_granted("ROLE_ADMIN_RESERVA")) %}
-            {% include 'admin/list_principal.html.twig' %}
-            {% include 'admin/list_metabase.html.twig' %}
+            {# {% include 'admin/list_metabase.html.twig' %} #}
+            <div class="card col-sm-4 col-lg-3 mx-auto ">
+                <a class="btn btn-secondary" href="{{ path('celebracion_index') }}">
+                    <div class="row no-gutters">
+                        <div class="col-md-3 align-self-center text-center">
+                            <i class="fas fa-calendar-alt fa-4x text-primary"></i>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Celebraciones</h5>
+                                <p class="card-text">
+                                    Datos de la celebraciones
+                                </p>
+                                <p class="card-text">
+                                    <small class="text-secondary">
+                                        <i class="fas fa-mouse-pointer"></i> Administrar
+                                    </small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
         {% endif %}
         {% if (is_granted("ROLE_RESERVA")) %}
-            <a class="btn btn-alameda" href="{{ path('reserva_consulta') }}">
-                Ver Reservas
+            <div class="card col-sm-4 col-lg-3 mx-auto ">
+            <a class="btn btn-secondary" href="{{ path('reserva_consulta') }}">
+                <div class="row no-gutters">
+                        <div class="col-md-3 align-self-center text-center">
+                        <i class="fas fa-calendar-day fa-4x text-primary"></i>
+
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Reservas</h5>
+                                <p class="card-text">
+                                    Consulta de reservas
+                                </p>
+                                <p class="card-text">
+                                    <small class="text-secondary">
+                                        <i class="fas fa-mouse-pointer"></i> Administrar
+                                    </small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
             </a>
+            <div class="card col-sm-4 col-lg-3 mx-auto ">
             <a class="btn btn-alameda" href="{{ path('reserva_lectura') }}">
                 Lectura QR
             </a>

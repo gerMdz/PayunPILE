@@ -1,11 +1,26 @@
-{% extends 'meta_base/metabase.html.twig' %}
+{% extends 'base_admin_board.html.twig' %}
 
-{% block title %}New MetaBase{% endblock %}
+{% block title %}Metabase ingreso{% endblock %}
 
-{% block body %}
-    <h1>Create new MetaBase</h1>
+{% block content %}
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-primary">
 
-    {{ include('meta_base/_form.html.twig') }}
+                <h4 class="card-title ">Metabase</h4>
+                <p class="card-category"> Ingreso de datos </p>
+            </div>
+            <div class="card-body">
 
-    <a href="{{ path('meta_base_index') }}">back to list</a>
+                {{ include('meta_base/_form.html.twig', {'button_label':'Grabar'}) }}
+            </div>
+        </div>
+        <div class="card-footer">
+            <a href="#"></a>
+
+            <a href="{{ path('meta_base_index') }}">
+                {{ include('bases/_volver.html.twig') }}
+            </a>
+        </div>
+    </div>
 {% endblock %}

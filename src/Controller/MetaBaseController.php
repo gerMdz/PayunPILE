@@ -29,6 +29,8 @@ class MetaBaseController extends AbstractController
 
     /**
      * @Route("/new", name="meta_base_new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -52,6 +54,8 @@ class MetaBaseController extends AbstractController
 
     /**
      * @Route("/{id}", name="meta_base_show", methods={"GET"})
+     * @param MetaBase $metaBase
+     * @return Response
      */
     public function show(MetaBase $metaBase): Response
     {
@@ -62,6 +66,9 @@ class MetaBaseController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="meta_base_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param MetaBase $metaBase
+     * @return Response
      */
     public function edit(Request $request, MetaBase $metaBase): Response
     {
@@ -82,6 +89,9 @@ class MetaBaseController extends AbstractController
 
     /**
      * @Route("/{id}", name="meta_base_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param MetaBase $metaBase
+     * @return Response
      */
     public function delete(Request $request, MetaBase $metaBase): Response
     {

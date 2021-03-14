@@ -62,12 +62,12 @@ class User implements UserInterface
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\ApiToken", mappedBy="user", orphanRemoval=true)
      */
-    private ArrayCollection $apiTokens;
+    private  $apiTokens;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\PageIndex", mappedBy="autor")
      */
-    private ArrayCollection $pageIndices;
+    private  $pageIndices;
 
 
 
@@ -83,7 +83,7 @@ class User implements UserInterface
     /**
      * @ORM\OneToMany(targetEntity=Celebracion::class, mappedBy="creaEvento")
      */
-    private ArrayCollection $celebracions;
+    private  $celebracions;
 
     public function __construct()
     {
@@ -155,7 +155,7 @@ class User implements UserInterface
     /**
      * @see UserInterface
      */
-    public function getSalt(): ?string
+    public function getSalt(): void
     {
         // not needed for apps that do not check user passwords
     }

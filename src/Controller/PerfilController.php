@@ -5,7 +5,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\ChangePasswordType;
-use App\Repository\IndexAlamedaRepository;
+use App\Repository\MetaBaseRepository;
 use App\Repository\UserRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
@@ -24,15 +24,15 @@ class PerfilController extends BaseController
     /**
      * @Route("web/perfil", name="app_perfil")
      *
-     * @param IndexAlamedaRepository $indexAlamedaRepository
+     * @param MetaBaseRepository $repository
      * @return Response
      */
-    public function index(IndexAlamedaRepository $indexAlamedaRepository)
+    public function index(MetaBaseRepository $repository)
     {
 
 
         return $this->render('perfil/perfil_index.html.twig', [
-            'datosIndex' => $indexAlamedaRepository->findAll()[0],
+            'datosIndex' => $repository->findAll()[0],
         ]);
     }
 

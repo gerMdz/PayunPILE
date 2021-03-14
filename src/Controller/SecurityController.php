@@ -20,18 +20,6 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
 {
-//    /**
-//     * @Route("/login", name="app_login")
-//     */
-//    public function index()
-//    {
-//        $em = $this->getDoctrine()->getManager();
-//        $indexAlameda = $em->getRepository(IndexAlameda::class)->findAll();
-//        return $this->render('security/index.html.twig', [
-//            'datosIndex'=> $indexAlameda[0]
-//
-//        ]);
-//    }
 
     /**
      * @Route("/admin/ingreso", name="app_login")

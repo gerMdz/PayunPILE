@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row vh-100">
+        <div class="card mb-3 mx-auto my-auto" style="max-width: 540px;">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="..." class="card-img" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Faltan algunos datos</h5>
+                        <p class="card-text">
+                            Si estás en esta pantalla es que te faltan datos para terminar la configuración
+                        </p>
+                        <p class="card-text">
+                            <small class="text-secondary">
+                                    <a href="{{ path('meta_base_index') }}">
+                                        Sigue desde aquí
+                                    </a>
+                            </small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block title %}
+    Ops! Faltan datos
+{% endblock %}
+

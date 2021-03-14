@@ -15,7 +15,6 @@ node_modules
 /public_html/build/
 npm-debug.log
 yarn-error.log
-/public_html/uploads/
 /src/Migrations/
 /assets/fonts/univers/
 /assets/css/foundation-icons/.DS_Store
@@ -44,9 +43,7 @@ yarn-error.log
 /public_html/business-casual/
 /public_html/material-kit/
 /public_html/shards-ui/
-/public_html/media/
 /public_html/media/cache
-/public_html/pre/uploads/entrada_reference/
 /migrations/Version20200617115938.php
 
 /public_html/vendors/tilt/

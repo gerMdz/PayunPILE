@@ -6,7 +6,7 @@
                     <ul>
                         <li>
                             <a href="{{ path('index') }}">
-                                {{ base.siteName }}
+                                {{ base.siteName |default('Reservas') }}
                             </a>
                         </li>
                     </ul>
@@ -16,7 +16,7 @@
                     <script>
                         document.write(new Date().getFullYear())
                     </script>
-                    <a href="{{ path('index') }}" target="_blank">{{ base.siteName }}</a>
+                    <a href="{{ path('index') }}" target="_blank">{{ base.siteName |default('Reservas')}}</a>
                 </div>
             </div>
 

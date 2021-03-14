@@ -2,9 +2,10 @@
 
 namespace App\Controller;
 
-use App\Entity\IndexAlameda;
+use App\Repository\MetaBaseRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
@@ -26,12 +27,16 @@ class ZinicioController extends AbstractController
 
     /**
      * @Route("/", name="index")
+     * @param MetaBaseRepository $repository
+     * @return RedirectResponse
      */
-    public function index()
+    public function index(MetaBaseRepository $repository): RedirectResponse
     {
-        $em = $this->getDoctrine()->getManager();
-        /** @var IndexAlameda $indexAlameda */
-        $indexAlameda = $em->getRepository(IndexAlameda::class)->findAll();
+        $base = $repository->findOneBy([]);
+
+        if(!$base){
+            return $this->redirectToRoute('not_metabase');
+        }
 
         return $this->redirectToRoute('reserva_index');
 
@@ -56,10 +61,15 @@ class ZinicioController extends AbstractController
         return $this->redirectToRoute('reserva_index');
     }
 
+    /**
+     * @Route("/metabase", name="not_metabase")
+     */
+    public function metabase(): Response
+    {
 
+        return $this->render('meta_base/noindex.html.twig', [
 
-
-
-
+        ]);
+    }
 
 }

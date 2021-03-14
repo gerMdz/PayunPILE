@@ -2,7 +2,6 @@
 
 namespace App\Twig;
 
-use App\Entity\IndexAlameda;
 use App\Entity\Invitado;
 use App\Entity\MetaBase;
 use App\Service\UploaderHelper;
@@ -55,14 +54,20 @@ class BaseExtension extends AbstractExtension implements ServiceSubscriberInterf
 
     public function lema()
     {
-        $lema = $this->em->getRepository(IndexAlameda::class)->findOneBy(['base' => 'index']);
-
+        $lema = $this->em->getRepository(MetaBase::class)->findOneBy([]);
+        if(!$lema){
+            return null;
+        }
         return $lema->getLema();
     }
 
     public function metaDescripcion()
     {
-        $base = $this->em->getRepository(IndexAlameda::class)->findOneBy(['base' => 'index']);
+        $base = $this->em->getRepository(MetaBase::class)->findOneBy([]);
+
+        if(!$base){
+            return null;
+        }
 
         return $base->getMetaDescripcion();
     }
