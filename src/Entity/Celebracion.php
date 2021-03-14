@@ -27,28 +27,28 @@ class Celebracion
      * @ORM\GeneratedValue(strategy="CUSTOM")
      * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidGenerator")
      */
-    private $id;
+    private ?string $id;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $fechaCelebracionAt;
+    private ?DateTimeInterface $fechaCelebracionAt;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $nombre;
+    private ?string $nombre;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $capacidad;
+    private ?int $capacidad;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="celebracions")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $creaEvento;
+    private ?User $creaEvento;
 
     /**
      * @ORM\OneToMany(targetEntity=Reservante::class, mappedBy="celebracion")
@@ -63,17 +63,17 @@ class Celebracion
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $descripcion;
+    private ?string $descripcion;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $isHabilitada;
+    private ?bool $isHabilitada;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $imageQr;
+    private ?string $imageQr;
 
     /**
      * @ORM\OneToMany(targetEntity=WaitingList::class, mappedBy="celebracion")

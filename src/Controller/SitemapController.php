@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Principal;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,14 +24,7 @@ class SitemapController extends AbstractController
         $urls[] = ['loc' => $this->generateUrl('reserva_index')];
 
 
-        foreach ($this->getDoctrine()->getRepository(Principal::class)->findAll() as $principal) {
-            $urls[] = [
-                'loc' => $this->generateUrl('principal_ver', [
-                    'linkRoute' => $principal->getLinkRoute(),
-                ]),
-                'lastmod' => $principal->getUpdatedAt()->format('Y-m-d'),
-            ];
-        }
+
 
         $response = new Response(
             $this->renderView('sitemap/index.html.twig', ['urls' => $urls,

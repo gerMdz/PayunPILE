@@ -17,9 +17,9 @@ use Twig\Environment;
 
 class Mailer
 {
-    private $mailer;
-    private $twig;
-    private $waitingListRepository;
+    private MailerInterface $mailer;
+    private Environment $twig;
+    private WaitingListRepository $waitingListRepository;
 
 
     /**
@@ -123,7 +123,10 @@ class Mailer
                 'reservante' => $reservante,
             ]);
 
-        $this->mailer->send($email);
+        try {
+            $this->mailer->send($email);
+        } catch (TransportExceptionInterface $e) {
+        }
 
         return $email;
     }
@@ -146,7 +149,10 @@ class Mailer
             ])
             ->attach($pdf, sprintf('weekly-report-%s.pdf', date('Y-m-d')));
 
-        $this->mailer->send($email);
+        try {
+            $this->mailer->send($email);
+        } catch (TransportExceptionInterface $e) {
+        }
 
         return $email;
     }

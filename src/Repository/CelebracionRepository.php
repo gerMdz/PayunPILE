@@ -73,14 +73,14 @@ class CelebracionRepository extends ServiceEntityRepository
     }
     */
 
-    private function sumar1hora()
+    private function sumar1hora(): DateTime
     {
         $datetime = new DateTime('now');
         $datetime->modify('+1 hour');
         return $datetime;
     }
 
-    private function getOrCreateQueryBuilder(QueryBuilder $qb = null)
+    private function getOrCreateQueryBuilder(QueryBuilder $qb = null): QueryBuilder
     {
         return $qb ?: $this->createQueryBuilder('c');
     }

@@ -8,9 +8,7 @@
         "ext-json": "*",
         "antishov/doctrine-extensions-bundle": "^1.4",
         "endroid/qr-code-bundle": "^3.4",
-        "friendsofsymfony/ckeditor-bundle": "^2.2",
         "gedmo/doctrine-extensions": "^2.4",
-        "knplabs/knp-markdown-bundle": "^1.8",
         "knplabs/knp-paginator-bundle": "^5.2",
         "knplabs/knp-time-bundle": "^1.11",
         "laminas/laminas-code": "^3.4",
@@ -45,8 +43,6 @@
         "twig/string-extra": "^3.0"
     },
     "require-dev": {
-        "doctrine/doctrine-fixtures-bundle": "^3.3",
-        "fzaninotto/faker": "^1.9",
         "sensiolabs/security-checker": "^6.0",
         "symfony/debug-bundle": "*",
         "symfony/maker-bundle": "^1.19",

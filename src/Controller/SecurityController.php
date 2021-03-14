@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\IndexAlameda;
 use App\Entity\User;
 use App\Form\Model\UserRegistrationFormModel;
 use App\Form\Model\VoluntarioReservaRegistrationFormModel;
@@ -10,6 +9,7 @@ use App\Form\UserRegistrationFormType;
 use App\Form\VoluntarioReservaRegistrationFormType;
 use App\Repository\UserRepository;
 use App\Security\LoginFormAuthenticator;
+use LogicException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -55,7 +55,7 @@ class SecurityController extends AbstractController
      */
     public function logout()
     {
-        throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
+        throw new LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
 
     /**

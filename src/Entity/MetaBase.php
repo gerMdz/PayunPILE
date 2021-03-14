@@ -14,52 +14,52 @@ class MetaBase
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $lema;
+    private ?string $lema;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $lemaPrincipal;
+    private ?string $lemaPrincipal;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $metaDescripcion;
+    private ?string $metaDescripcion;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $metaAutor;
+    private ?string $metaAutor;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $metaTitle;
+    private ?string $metaTitle;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $metaType;
+    private ?string $metaType;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $metaUrl;
+    private ?string $metaUrl;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $siteName;
+    private ?string $siteName;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $base;
+    private string $base;
 
     public function __construct()
     {

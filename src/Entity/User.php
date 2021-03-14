@@ -27,7 +27,7 @@ class User implements UserInterface
      * @ORM\GeneratedValue(strategy="CUSTOM")
      * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidGenerator")
      */
-    private $id;
+    private ?string $id;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
@@ -35,92 +35,60 @@ class User implements UserInterface
      * @Assert\NotBlank(message="Por Favor ingrese un email válido")
      * @Assert\Email(message="Por Favor ingrese un email válido")
      */
-    private $email;
+    private ?string $email;
 
     /**
      * @ORM\Column(type="json")
      */
-    private $roles = [];
+    private array $roles = [];
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Groups("perfil")
      */
-    private $primerNombre;
+    private ?string $primerNombre;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $password;
+    private ?string $password;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Groups("perfil")
      */
-    private $twitterUsername;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups("perfil")
-     */
-    private $avatarUrl;
+    private ?string $twitterUsername;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\ApiToken", mappedBy="user", orphanRemoval=true)
      */
-    private $apiTokens;
+    private ArrayCollection $apiTokens;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\PageIndex", mappedBy="autor")
      */
-    private $pageIndices;
+    private ArrayCollection $pageIndices;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Entrada", mappedBy="autor")
-     */
-    private $entradas;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Principal::class, mappedBy="autor")
-     */
-    private $principal;
-
-    /**
-     * @ORM\OneToMany(targetEntity=Comentario::class, mappedBy="autor")
-     */
-    private $comentarios;
 
 
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $aceptaTerminosAt;
+    private ?DateTimeInterface $aceptaTerminosAt;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Section::class, mappedBy="autor", fetch="EXTRA_LAZY")
-     */
-    private $sections;
 
-    /**
-     * @ORM\OneToMany(targetEntity=EnlaceCorto::class, mappedBy="usuario")
-     */
-    private $enlaceCortos;
 
     /**
      * @ORM\OneToMany(targetEntity=Celebracion::class, mappedBy="creaEvento")
      */
-    private $celebracions;
+    private ArrayCollection $celebracions;
 
     public function __construct()
     {
         $this->apiTokens = new ArrayCollection();
         $this->pageIndices = new ArrayCollection();
-        $this->entradas = new ArrayCollection();
-        $this->principal = new ArrayCollection();
-        $this->comentarios = new ArrayCollection();
-        $this->sections = new ArrayCollection();
-        $this->enlaceCortos = new ArrayCollection();
         $this->celebracions = new ArrayCollection();
     }
 
@@ -187,7 +155,7 @@ class User implements UserInterface
     /**
      * @see UserInterface
      */
-    public function getSalt()
+    public function getSalt(): ?string
     {
         // not needed for apps that do not check user passwords
     }
@@ -244,7 +212,7 @@ class User implements UserInterface
 
     public function setAvatarUrl(?string $avatarUrl): self
     {
-        $this->avatarUrl = $avatarUrl;
+        $avatarUrl1 = $avatarUrl;
 
         return $this;
     }
@@ -311,98 +279,7 @@ class User implements UserInterface
         return $this;
     }
 
-    /**
-     * @return Collection|Entrada[]
-     */
-    public function getEntradas(): Collection
-    {
-        return $this->entradas;
-    }
 
-    public function addEntrada(Entrada $entrada): self
-    {
-        if (!$this->entradas->contains($entrada)) {
-            $this->entradas[] = $entrada;
-            $entrada->setAutor($this);
-        }
-
-        return $this;
-    }
-
-    public function removeEntrada(Entrada $entrada): self
-    {
-        if ($this->entradas->contains($entrada)) {
-            $this->entradas->removeElement($entrada);
-            // set the owning side to null (unless already changed)
-            if ($entrada->getAutor() === $this) {
-                $entrada->setAutor(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Principal[]
-     */
-    public function getPrincipal(): Collection
-    {
-        return $this->principal;
-    }
-
-    public function addPrincipals(Principal $principals): self
-    {
-        if (!$this->principal->contains($principals)) {
-            $this->principal[] = $principals;
-            $principals->setAutor($this);
-        }
-
-        return $this;
-    }
-
-    public function removePrincipals(Principal $principals): self
-    {
-        if ($this->principal->contains($principals)) {
-            $this->principal->removeElement($principals);
-            // set the owning side to null (unless already changed)
-            if ($principals->getAutor() === $this) {
-                $principals->setAutor(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Comentario[]
-     */
-    public function getComentarios(): Collection
-    {
-        return $this->comentarios;
-    }
-
-    public function addComentario(Comentario $comentario): self
-    {
-        if (!$this->comentarios->contains($comentario)) {
-            $this->comentarios[] = $comentario;
-            $comentario->setAutor($this);
-        }
-
-        return $this;
-    }
-
-    public function removeComentario(Comentario $comentario): self
-    {
-        if ($this->comentarios->contains($comentario)) {
-            $this->comentarios->removeElement($comentario);
-            // set the owning side to null (unless already changed)
-            if ($comentario->getAutor() === $this) {
-                $comentario->setAutor(null);
-            }
-        }
-
-        return $this;
-    }
 
     public function getAceptaTerminosAt(): ?DateTimeInterface
     {
@@ -415,67 +292,8 @@ class User implements UserInterface
         $this->aceptaTerminosAt = new DateTime();
     }
 
-    /**
-     * @return Collection|Section[]
-     */
-    public function getSections(): Collection
-    {
-        return $this->sections;
-    }
 
-    public function addSection(Section $section): self
-    {
-        if (!$this->sections->contains($section)) {
-            $this->sections[] = $section;
-            $section->setAutor($this);
-        }
 
-        return $this;
-    }
-
-    public function removeSection(Section $section): self
-    {
-        if ($this->sections->contains($section)) {
-            $this->sections->removeElement($section);
-            // set the owning side to null (unless already changed)
-            if ($section->getAutor() === $this) {
-                $section->setAutor(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|EnlaceCorto[]
-     */
-    public function getEnlaceCortos(): Collection
-    {
-        return $this->enlaceCortos;
-    }
-
-    public function addEnlaceCorto(EnlaceCorto $enlaceCorto): self
-    {
-        if (!$this->enlaceCortos->contains($enlaceCorto)) {
-            $this->enlaceCortos[] = $enlaceCorto;
-            $enlaceCorto->setUsuario($this);
-        }
-
-        return $this;
-    }
-
-    public function removeEnlaceCorto(EnlaceCorto $enlaceCorto): self
-    {
-        if ($this->enlaceCortos->contains($enlaceCorto)) {
-            $this->enlaceCortos->removeElement($enlaceCorto);
-            // set the owning side to null (unless already changed)
-            if ($enlaceCorto->getUsuario() === $this) {
-                $enlaceCorto->setUsuario(null);
-            }
-        }
-
-        return $this;
-    }
 
     /**
      * @return Collection|Celebracion[]

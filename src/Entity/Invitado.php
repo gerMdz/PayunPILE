@@ -19,58 +19,58 @@ class Invitado
      * @ORM\GeneratedValue(strategy="CUSTOM")
      * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidGenerator")
      */
-    private $id;
+    private ?string $id;
 
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Groups("export_invitado")
      */
-    private $telefono;
+    private ?string $telefono;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $dni;
+    private ?string $dni;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $nombre;
+    private ?string $nombre;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $apellido;
+    private ?string $apellido;
 
     /**
      * @ORM\ManyToOne(targetEntity=Reservante::class, inversedBy="invitados")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $enlace;
+    private ?Reservante $enlace;
 
     /**
      * @ORM\ManyToOne(targetEntity=Celebracion::class, inversedBy="invitados")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $celebracion;
+    private ?Celebracion $celebracion;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $email;
+    private ?string $email;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $isEnlace;
+    private ?bool $isEnlace;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $isPresente;
+    private ?bool $isPresente;
 
-    public function __toString()
+    public function __toString(): string
     {
         return $this->email . ' - ' .$this->apellido . ', '. $this->nombre;
     }

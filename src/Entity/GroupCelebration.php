@@ -23,49 +23,49 @@ class GroupCelebration
      * @ORM\GeneratedValue(strategy="CUSTOM")
      * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidGenerator")
      */
-    private $id;
+    private ?string $id;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $isActivo;
+    private ?bool $isActivo;
 
     /**
      * @ORM\ManyToMany(targetEntity=Celebracion::class, inversedBy="groupCelebrations")
      */
-    private $celebraciones;
+    private ArrayCollection $celebraciones;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $baseCss;
+    private ?string $baseCss;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $btonCss;
+    private ?string $btonCss;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $imageBg;
+    private ?string $imageBg;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $title;
+    private ?string $title;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $orden;
+    private ?int $orden;
 
     public function __construct()
     {
         $this->celebraciones = new ArrayCollection();
     }
 
-    public function __toString()
+    public function __toString(): ?string
     {
         return $this->title;
     }

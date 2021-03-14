@@ -6,7 +6,6 @@ use Exception;
 use Gedmo\Sluggable\Util\Urlizer;
 use League\Flysystem\FileNotFoundException;
 use League\Flysystem\FilesystemInterface;
-use phpDocumentor\Reflection\Types\This;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Asset\Context\RequestStackContext;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -17,11 +16,11 @@ class UploaderHelper
     const IMAGE_ENTRADA = 'image_entrada';
     const ENTRADA_REFERENCE = 'entrada_reference';
 
-    private $context;
-    private $filesystem;
-    private $uploadedAssetsBaseUrl;
-    private $privateFilesystem;
-    private $logger;
+    private RequestStackContext $context;
+    private FilesystemInterface $filesystem;
+    private string $uploadedAssetsBaseUrl;
+    private FilesystemInterface $privateFilesystem;
+    private LoggerInterface $logger;
 
     /**
      * UploaderHelper constructor.
@@ -49,7 +48,10 @@ class UploaderHelper
     public function uploadEntradaImage(File $file, ?string $existingFilename ): string
     {
 
-        $newFilename = $this->uploadFile($file, self::IMAGE_ENTRADA, true);
+        try {
+            $newFilename = $this->uploadFile($file, self::IMAGE_ENTRADA, true);
+        } catch (Exception $e) {
+        }
 
         if ($existingFilename) {
             try {
@@ -67,7 +69,10 @@ class UploaderHelper
 
     public function uploadEntradaReference(File $file): string
     {
-        return $this->uploadFile($file, self::ENTRADA_REFERENCE, false);
+        try {
+            return $this->uploadFile($file, self::ENTRADA_REFERENCE, false);
+        } catch (Exception $e) {
+        }
     }
 
     public function getPublicPath(string $path): string
@@ -77,7 +82,7 @@ class UploaderHelper
                 ->getBasePath().$this->uploadedAssetsBaseUrl.'/'.$path;
     }
 
-    private function uploadFile(File $file, string $directory, bool $isPublic)
+    private function uploadFile(File $file, string $directory, bool $isPublic): string
     {
         if ($file instanceof UploadedFile) {
             $originalFilename = $file->getClientOriginalName();
@@ -106,7 +111,7 @@ class UploaderHelper
         $resource = $filesystem->readStream($path);
 
         if ($resource === false) {
-            throw new \Exception(sprintf('Error al abrir secuencia para "%s"', $path));
+            throw new Exception(sprintf('Error al abrir secuencia para "%s"', $path));
         }
         return $resource;
 
@@ -118,7 +123,7 @@ class UploaderHelper
         $filesystem = $isPublic ? $this->filesystem : $this->privateFilesystem;
         $result = $filesystem->delete($path);
         if ($result === false) {
-            throw new \Exception(sprintf('Error borrando "%s"', $path));
+            throw new Exception(sprintf('Error borrando "%s"', $path));
         }
     }
 

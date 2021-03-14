@@ -2,8 +2,7 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -16,88 +15,81 @@ class IndexAlameda
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $lema;
+    private ?string $lema;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $lemaPrincipal;
+    private ?string $lemaPrincipal;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $lemaSinEspacio;
+    private ?string $lemaSinEspacio;
 
     /**
      * @ORM\Column(type="string", length=5, nullable=true)
      */
-    private $horario1;
+    private ?string $horario1;
 
     /**
      * @ORM\Column(type="string", length=5, nullable=true)
      */
-    private $horario2;
+    private ?string $horario2;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $textoVersiculo;
+    private ?string $textoVersiculo;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $versiculo;
+    private ?string $versiculo;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $metaDescripcion;
+    private ?string $metaDescripcion;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $metaAutor;
+    private ?string $metaAutor;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $metaTitle;
+    private ?string $metaTitle;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $metaType;
+    private ?string $metaType;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $metaUrl;
+    private ?string $metaUrl;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $metaImage;
+    private ?string $metaImage;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $base;
+    private ?string $base;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Section::class, inversedBy="indexAlamedas")
-     * @ORM\OrderBy({"orden"="ASC"})
-     */
-    private $section;
 
-    public function __construct()
-    {
-        $this->section = new ArrayCollection();
-    }
+
+
 
     public function getId(): ?int
     {
@@ -272,29 +264,7 @@ class IndexAlameda
         return $this;
     }
 
-    /**
-     * @return Collection|Section[]
-     */
-    public function getSection(): Collection
-    {
-        return $this->section;
-    }
 
-    public function addSection(Section $section): self
-    {
-        if (!$this->section->contains($section)) {
-            $this->section[] = $section;
-        }
 
-        return $this;
-    }
 
-    public function removeSection(Section $section): self
-    {
-        if ($this->section->contains($section)) {
-            $this->section->removeElement($section);
-        }
-
-        return $this;
-    }
 }

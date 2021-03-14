@@ -6,7 +6,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 class ObtenerDatosHelper
 {
-    private $requestStack;
+    private RequestStack $requestStack;
 
     /**
      * ObtenerDatosHelper constructor.

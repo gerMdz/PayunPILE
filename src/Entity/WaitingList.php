@@ -16,30 +16,30 @@ class WaitingList
      * @ORM\GeneratedValue(strategy="CUSTOM")
      * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidGenerator")
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $apellido;
+    private ?string $apellido;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $nombre;
+    private ?string $nombre;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $email;
+    private ?string $email;
 
     /**
      * @ORM\ManyToOne(targetEntity=Celebracion::class, inversedBy="waitingLists")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $celebracion;
+    private ?Celebracion $celebracion;
 
-    public function __toString()
+    public function __toString(): ?string
     {
         return $this->email;
     }

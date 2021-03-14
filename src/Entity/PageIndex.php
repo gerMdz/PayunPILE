@@ -14,18 +14,18 @@ class PageIndex
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name;
+    private ?string $name;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="pageIndices")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $autor;
+    private ?User $autor;
 
     public function getId(): ?int
     {
