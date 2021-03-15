@@ -41,7 +41,7 @@
             </tr>
             <tr>
                 <th>SiteName</th>
-                <td>{{ meta_base.siteName }}</td>
+                <td>{{ meta_base.siteName| default('Reserva') }}</td>
             </tr>
         </tbody>
     </table>

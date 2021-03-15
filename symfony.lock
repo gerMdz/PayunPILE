@@ -44,9 +44,6 @@
     "doctrine/common": {
         "version": "2.13.3"
     },
-    "doctrine/data-fixtures": {
-        "version": "1.4.3"
-    },
     "doctrine/dbal": {
         "version": "2.10.2"
     },
@@ -63,18 +60,6 @@
             "config/packages/prod/doctrine.yaml",
             "src/Entity/.gitignore",
             "src/Repository/.gitignore"
-        ]
-    },
-    "doctrine/doctrine-fixtures-bundle": {
-        "version": "3.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "3.0",
-            "ref": "fc52d86631a6dfd9fdf3381d0b7e3df2069e51b3"
-        },
-        "files": [
-            "src/DataFixtures/AppFixtures.php"
         ]
     },
     "doctrine/doctrine-migrations-bundle": {
@@ -135,21 +120,6 @@
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.0"
     },
-    "friendsofsymfony/ckeditor-bundle": {
-        "version": "2.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "master",
-            "version": "2.0",
-            "ref": "8eb1cd0962ded6a6d6e1e5a9b6d3e888f9f94ff6"
-        },
-        "files": [
-            "config/packages/fos_ckeditor.yaml"
-        ]
-    },
-    "fzaninotto/faker": {
-        "version": "v1.9.1"
-    },
     "gedmo/doctrine-extensions": {
         "version": "v2.4.41"
     },
@@ -161,9 +131,6 @@
     },
     "knplabs/knp-components": {
         "version": "v2.3.6"
-    },
-    "knplabs/knp-markdown-bundle": {
-        "version": "1.8.1"
     },
     "knplabs/knp-paginator-bundle": {
         "version": "v5.2.0"
@@ -207,9 +174,6 @@
     },
     "markbaker/matrix": {
         "version": "2.0.0"
-    },
-    "michelf/php-markdown": {
-        "version": "1.9.0"
     },
     "monolog/monolog": {
         "version": "1.25.4"
@@ -394,9 +358,6 @@
     },
     "symfony/event-dispatcher-contracts": {
         "version": "v1.1.7"
-    },
-    "symfony/expression-language": {
-        "version": "v4.4.18"
     },
     "symfony/filesystem": {
         "version": "v4.4.10"

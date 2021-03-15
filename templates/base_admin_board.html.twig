@@ -48,7 +48,7 @@
                 <img src="{{ asset('images/institucional/logo_n1.png') }}" height="30px" width="30px"/>
             </a>
             <a href="{{ path('index') }}" class="simple-text logo-normal">
-                Iglesia de la Alameda
+                {{ base.siteName | default('Reserva')}}
             </a>
         </div>
         <div class="sidebar-wrapper">
@@ -65,7 +65,7 @@
                 {% block encabezado %}
                     <!-- your encabezado here -->
                 {% endblock %}
-                <div class="bg-white p-1">
+                <div class=" p-1">
                 {% block content %}
                     <!-- your content here -->
                 {% endblock %}

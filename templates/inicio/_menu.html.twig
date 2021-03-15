@@ -18,7 +18,7 @@
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
                     <img src="{{ app.user.avatarUrl(30) }}"
-                         class="nav-profile-img rounded-circle img-fluid img-thumbnail" alt="{{ base.siteName }}">
+                         class="nav-profile-img rounded-circle img-fluid img-thumbnail" alt="{{ base.siteName| default('Reserva') }}">
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="{{ path('app_perfil') }}">Perfil</a>

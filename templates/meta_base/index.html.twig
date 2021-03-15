@@ -36,11 +36,8 @@
                                 <td>{{ meta_base.metaTitle }}</td>
                                 <td>{{ meta_base.metaType }}</td>
                                 <td>{{ meta_base.metaUrl }}</td>
-                                <td>{{ meta_base.siteName }}</td>
+                                <td>{{ meta_base.siteName | default('Reserva') }}</td>
                                 <td>
-                                    <a href="{{ path('meta_base_show', {'id': meta_base.id}) }}">
-                                        {{ include('bases/_ver.html.twig') }}
-                                    </a>
                                     <a href="{{ path('meta_base_edit', {'id': meta_base.id}) }}">
                                         {{ include('bases/_editar.html.twig') }}
                                     </a>

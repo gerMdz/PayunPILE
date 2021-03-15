@@ -27,7 +27,9 @@
     </style>
 <h1>Hola {{ reservante.nombre }}!</h1>
 <br/>
-    Bienvenido a las Celebraciones en Nuestro Auditorio.
+    /*/*/*
+    TODO
+    /*/*/*
 <br/>
 Estamos entusiasmados de poder verte el {{ reservante.celebracion.fechaCelebracionAt | format_date(pattern="d 'de' MMMM") }},  {{ reservante.celebracion.nombre }}
 <br/>
@@ -43,16 +45,18 @@ Para descargar tu código, usa el botón que está debajo:<br/>
     Si tu cliente de correo no te redirige correctamente, copia y pega el siguiente enlace en tu navegador: <br/>
     <pre class="text-info">https://{{dirweb|trim}}</pre>
     <br/>
-<img alt="QR Alameda" src="{{qr_code_data_uri(dirweb, { size: 350, logo_path: reservante.celebracion.imageQr })}}" />
+<img alt="QR RESERVAS" src="{{qr_code_data_uri(dirweb, { size: 350, logo_path: reservante.celebracion.imageQr })}}" />
     <br/>
-Asegurate tener el código en tu celular pues deberás mostrarlo al ingresar al auditorio:<br/>
+/*/*/*
+    TODO
+    /*/*/*
+    <br/>
 
 <br/>
 <p>
-    Recordá que para lograr la mejor experiencia, en el ambiente más seguro, vamos a tener que aprender algunos hábitos nuevos: Utilizar tapabocas todo el tiempo posible y mantener distancia social en toda la experiencia.
-    Pero lo más importante: ¡Recordá que Dios tendrá algo especial para tu vida!
-    Nos vemos,<br/>
-    Iglesia de la Alameda
+    /*/*/*
+    TODO
+    /*/*/*
 
 </p>
 {% endapply %}

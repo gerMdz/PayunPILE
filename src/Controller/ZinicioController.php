@@ -72,4 +72,13 @@ class ZinicioController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/admin", name="admin_ingreso")
+     */
+    public function admin(): Response
+    {
+
+        return $this->redirectToRoute('admin_panel');
+    }
+
 }

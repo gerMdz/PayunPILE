@@ -6,7 +6,6 @@ namespace App\Service;
 use App\Entity\Celebracion;
 use App\Entity\Invitado;
 use App\Entity\Reservante;
-use App\Entity\User;
 use App\Entity\WaitingList;
 use App\Repository\WaitingListRepository;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
@@ -131,29 +130,5 @@ class Mailer
         return $email;
     }
 
-    public function sendAuthorWeeklyReportMessage(User $author, array $articles): TemplatedEmail
-    {
-        $html = $this->twig->render('email/author-weekly-report-pdf.html.twig', [
-            'articles' => $articles,
-        ]);
-        $this->entrypointLookup->reset();
-        $pdf = $this->pdf->getOutputFromHtml($html);
 
-        $email = (new TemplatedEmail())
-            ->to(new Address($author->getEmail(), $author->getPrimerNombre()))
-            ->subject('Your weekly report on the Space Bar!')
-            ->htmlTemplate('email/author-weekly-report.html.twig')
-            ->context([
-                'author' => $author,
-                'articles' => $articles,
-            ])
-            ->attach($pdf, sprintf('weekly-report-%s.pdf', date('Y-m-d')));
-
-        try {
-            $this->mailer->send($email);
-        } catch (TransportExceptionInterface $e) {
-        }
-
-        return $email;
-    }
 }

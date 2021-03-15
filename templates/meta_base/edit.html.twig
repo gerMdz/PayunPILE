@@ -1,13 +1,26 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_admin_board.html.twig' %}
 
-{% block title %}Edit MetaBase{% endblock %}
+{% block title %}Edición MetaBase{% endblock %}
 
-{% block body %}
-    <h1>Edit MetaBase</h1>
+{% block content %}
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-primary">
 
-    {{ include('meta_base/_form.html.twig', {'button_label': 'Update'}) }}
+                <h4 class="card-title ">Metabase</h4>
+                <p class="card-category"> Edición </p>
+            </div>
+            <div class="card-body">
 
-    <a href="{{ path('meta_base_index') }}">back to list</a>
+                {{ include('meta_base/_form.html.twig', {'button_label': 'Actualizar'}) }}
+            </div>
 
-    {{ include('meta_base/_delete_form.html.twig') }}
+
+            <a href="{{ path('meta_base_index') }}">
+                {{ include('bases/_volver.html.twig') }}
+            </a>
+        </div>
+
+        {{ include('meta_base/_delete_form.html.twig') }}
+    </div>
 {% endblock %}

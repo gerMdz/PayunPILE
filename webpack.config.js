@@ -30,13 +30,13 @@ Encore
     .addEntry('login', './assets/js/login.js')
     .addEntry('perfil', './assets/js/perfil.js')
     .addEntry('section_select', './assets/js/select_section.js')
-    .addEntry('nota_mensaje', './assets/js/nota_mensaje.js')
-    .addEntry('tailwind', './assets/js/tailwind.js')
-    .addEntry('summernote', './assets/js/summer.js')
+
+
+
     //.addEntry('page1', './assets/js/page1.js')
     .addStyleEntry('loginStyle', './assets/css/styles.css')
     .addStyleEntry('perfilStyle', './assets/css/account.css')
-    .addStyleEntry('tailwindStyle', './assets/css/tailwind.css')
+
     //.addEntry('page2', './assets/js/page2.js')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
@@ -107,14 +107,7 @@ Encore
         pattern: /\.(png|jpg|jpeg)$/,
 
     })
-    .copyFiles([
-        {from: './node_modules/ckeditor4/', to: 'ckeditor/[path][name].[ext]', pattern: /\.(js|css)$/, includeSubdirectories: false},
-        {from: './node_modules/ckeditor4/adapters', to: 'ckeditor/adapters/[path][name].[ext]'},
-        {from: './node_modules/ckeditor4/lang', to: 'ckeditor/lang/[path][name].[ext]'},
-        {from: './node_modules/ckeditor4/plugins', to: 'ckeditor/plugins/[path][name].[ext]'},
-        {from: './node_modules/ckeditor4/skins', to: 'ckeditor/skins/[path][name].[ext]'},
-        {from: './assets/ckeditor/plugins', to: 'ckeditor/plugins/[path][name].[ext]'}
-    ])
+
 
 
 ;

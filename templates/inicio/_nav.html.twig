@@ -1,9 +1,7 @@
 <style>
-
     .dropdown-menu {
         margin-left: -100px !important;
     }
-
     .navbar-toggler-icon {
         color: #6cbb23 !important;
         /*width: 1.1em !important;*/
@@ -11,19 +9,16 @@
     }
 </style>
 
-<!--<nav class="navbar navbar-collapse navbar-expand-lg bg-white fixed-top mx-1">-->
 <!--    <div class="container-fluid">-->
 <nav class="navbar navbar-expand-lg bg-white fixed-top mx-1 mb-sm-2 ArialMedium" style="height: 64px ">
     <div class="container">
         <div class="navbar-translate">
             <a class="navbar-brand" href="{{ path('index') }}">
-                <!--                <img class="rounded-circle" src="/images/logo_n1.png" style="width: 30px;" alt="Logo Iglesia Alameda">-->
-                <img class="rounded d-none d-lg-block" src="{{ asset('images/logo-con-nombre-2020.png') }} "
-                     style="width: 130px;" alt="Logo Iglesia Alameda">
-                <img class="rounded d-lg-none" src="{{ asset('/images/logo-solo-2020.png') }}" style="width: 35px;"
-                     alt="Logo Iglesia Alameda">
-                {# <small>Iglesia de la Alameda</small> #}
-                <!--                <img class="img-fluid" style="height: 40px" src="/images/institucional/logo-con-nombre-2020.png" alt="Logo Iglesia Alameda">-->
+
+                <img class="rounded d-none d-lg-block" src="{{ asset('images/logo.png') }} "
+                     style="width: 130px;" alt="{{ base.siteName | default('Reserva') }}">
+                <img class="rounded d-lg-none" src="{{ asset('/images/logo.png') }}" style="width: 35px;"
+                     alt="{{ base.siteName | default('Reserva') }}">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -33,11 +28,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
         </div>
-
-        <!--        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">-->
-
         <!-- Links -->
         {% include 'inicio/_menu.html.twig' %}
-
     </div>
 </nav>
