@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit DelayMail{% endblock %}
+
+{% block body %}
+    <h1>Edit DelayMail</h1>
+
+    {{ include('delay_mail/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('delay_mail_index') }}">back to list</a>
+
+    {{ include('delay_mail/_delete_form.html.twig') }}
+{% endblock %}

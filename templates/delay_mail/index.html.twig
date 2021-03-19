@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DelayMail index{% endblock %}
+
+{% block body %}
+    <h1>DelayMail index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Template</th>
+                <th>CreacionAt</th>
+                <th>Prioridad</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for delay_mail in delay_mails %}
+            <tr>
+                <td>{{ delay_mail.id }}</td>
+                <td>{{ delay_mail.email }}</td>
+                <td>{{ delay_mail.template }}</td>
+                <td>{{ delay_mail.creacionAt ? delay_mail.creacionAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ delay_mail.prioridad }}</td>
+                <td>
+                    <a href="{{ path('delay_mail_show', {'id': delay_mail.id}) }}">show</a>
+                    <a href="{{ path('delay_mail_edit', {'id': delay_mail.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('delay_mail_new') }}">Create new</a>
+{% endblock %}

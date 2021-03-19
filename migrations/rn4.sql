@@ -1,0 +1,1 @@
+ALTER TABLE delay_mail ADD entity VARCHAR(36) NOT NULL;

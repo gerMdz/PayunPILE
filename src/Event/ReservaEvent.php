@@ -9,6 +9,7 @@ use Symfony\Contracts\EventDispatcher\Event;
 class ReservaEvent extends Event
 {
     public const ANULA_RESERVA = 'anula.reserva.event';
+    public const CREA_RESERVA = 'crea.reserva.event';
 
     protected $data;
 

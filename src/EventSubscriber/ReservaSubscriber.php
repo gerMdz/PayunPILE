@@ -2,25 +2,30 @@
 
 namespace App\EventSubscriber;
 
+use App\Entity\DelayMail;
 use App\Service\Handler\Celebracion\HandlerCelebracion;
+use App\Service\Handler\DelayMail\HandlerDelayMail;
 use App\Service\Mailer;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 
 class ReservaSubscriber implements EventSubscriberInterface
 {
-    private $handlerCelebracion;
-    private $mailer;
+
+    private HandlerCelebracion $handlerCelebracion;
+    private HandlerDelayMail $handlerDelayMail;
+
 
     /**
      * ReservaSubscriber constructor.
      * @param HandlerCelebracion $handlerCelebracion
-     * @param Mailer $mailer
+     * @param HandlerDelayMail $handlerDelayMail
      */
-    public function __construct(HandlerCelebracion $handlerCelebracion, Mailer $mailer)
+    public function __construct(HandlerCelebracion $handlerCelebracion, HandlerDelayMail $handlerDelayMail)
     {
+
         $this->handlerCelebracion = $handlerCelebracion;
-        $this->mailer = $mailer;
+        $this->handlerDelayMail = $handlerDelayMail;
     }
 
     public function onAnulaReservaEvent($event)
@@ -35,10 +40,16 @@ class ReservaSubscriber implements EventSubscriberInterface
 
     }
 
+    public function onCreaReservaEvent($event)
+    {
+        $this->handlerDelayMail->grabaReserva($event->getData());
+    }
+
     public static function getSubscribedEvents(): array
     {
         return [
             'anula.reserva.event' => 'onAnulaReservaEvent',
+            'crea.reserva.event' => 'onCreaReservaEvent',
         ];
     }
 }

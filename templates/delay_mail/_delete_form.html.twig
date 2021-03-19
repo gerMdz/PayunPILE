@@ -1,0 +1,5 @@
+<form method="post" action="{{ path('delay_mail_delete', {'id': delay_mail.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ delay_mail.id) }}">
+    <button class="btn">Delete</button>
+</form>

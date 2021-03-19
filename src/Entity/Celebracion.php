@@ -27,7 +27,7 @@ class Celebracion
      * @ORM\GeneratedValue(strategy="CUSTOM")
      * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidGenerator")
      */
-    private ?string $id;
+    protected $id;
 
     /**
      * @ORM\Column(type="datetime")
@@ -294,10 +294,8 @@ class Celebracion
         return $this;
     }
 
-    /**
-     * @return Collection|GroupCelebration[]
-     */
-    public function getGroupCelebrations(): Collection
+
+    public function getGroupCelebrations()
     {
         return $this->groupCelebrations;
     }

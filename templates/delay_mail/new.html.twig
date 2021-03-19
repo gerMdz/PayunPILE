@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New DelayMail{% endblock %}
+
+{% block body %}
+    <h1>Create new DelayMail</h1>
+
+    {{ include('delay_mail/_form.html.twig') }}
+
+    <a href="{{ path('delay_mail_index') }}">back to list</a>
+{% endblock %}

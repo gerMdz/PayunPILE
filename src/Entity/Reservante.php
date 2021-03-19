@@ -6,6 +6,8 @@ use App\Repository\ReservanteRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Ramsey\Uuid\Rfc4122\UuidInterface;
+use Ramsey\Uuid\Uuid;
 
 /**
  * @ORM\Entity(repositoryClass=ReservanteRepository::class)
@@ -18,7 +20,7 @@ class Reservante
      * @ORM\GeneratedValue(strategy="CUSTOM")
      * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidGenerator")
      */
-    private ?string $id;
+    protected $id;
     /**
      * @ORM\ManyToOne(targetEntity=Celebracion::class, inversedBy="reservantes")
      * @ORM\JoinColumn(nullable=false)
@@ -59,7 +61,7 @@ class Reservante
      * @ORM\OneToMany(targetEntity=Invitado::class, mappedBy="enlace")
      * @ORM\OrderBy({"nombre"= "ASC"})
      */
-    private ArrayCollection $invitados;
+    private Collection $invitados;
 
     public function __toString(): string
     {
@@ -73,7 +75,7 @@ class Reservante
 
 
 
-    public function getId(): ?string
+    public function getId(): string
     {
         return $this->id;
     }

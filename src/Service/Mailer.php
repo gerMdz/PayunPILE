@@ -36,11 +36,10 @@ class Mailer
 
     /**
      * @param Reservante $reservante
-     * @param null|int $invitados
      * @return TemplatedEmail
      * @throws TransportExceptionInterface
      */
-    public function sendReservaMessage(Reservante $reservante, ?int $invitados): TemplatedEmail
+    public function sendReservaMessage(Reservante $reservante): TemplatedEmail
     {
         $email = (new TemplatedEmail())
             ->from(new Address('contacto@iglesiaalameda.com', 'Iglesia de La Alameda'))
@@ -50,7 +49,6 @@ class Mailer
             ->context([
                 // You can pass whatever data you want
                 'reservante' => $reservante,
-                'invitados' => $invitados
             ]);
 
         $this->mailer->send($email);

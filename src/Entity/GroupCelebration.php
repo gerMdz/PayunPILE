@@ -23,7 +23,7 @@ class GroupCelebration
      * @ORM\GeneratedValue(strategy="CUSTOM")
      * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidGenerator")
      */
-    private ?string $id;
+    protected $id;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
@@ -33,7 +33,7 @@ class GroupCelebration
     /**
      * @ORM\ManyToMany(targetEntity=Celebracion::class, inversedBy="groupCelebrations")
      */
-    private ArrayCollection $celebraciones;
+    private Collection $celebraciones;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)

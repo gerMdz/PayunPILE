@@ -56,11 +56,10 @@ class ReservaController extends AbstractController
      * @param Celebracion $celebracion
      * @param Request $request
      * @param EntityManagerInterface $em
-     * @param Mailer $mailer
+     * @param EventDispatcherInterface $dispatcher
      * @return Response
-     * @throws TransportExceptionInterface
      */
-    public function creaReserva(Celebracion $celebracion, Request $request, EntityManagerInterface $em, Mailer $mailer): Response
+    public function creaReserva(Celebracion $celebracion, Request $request, EntityManagerInterface $em, EventDispatcherInterface $dispatcher): Response
     {
         $reservante = new Reservante();
         $reservante->setCelebracion($celebracion);
@@ -104,7 +103,10 @@ class ReservaController extends AbstractController
 
             $repository = $em->getRepository(Invitado::class);
             $invitados = $repository->count(['enlace' => $reservante->getId()]);
-            $mailer->sendReservaMessage($reservante, $invitados);
+
+            $event = new ReservaEvent($reservante);
+            $dispatcher->dispatch($event, ReservaEvent::CREA_RESERVA);
+
 
             $this->addFlash('success', 'Se ha guardado su reserva');
 

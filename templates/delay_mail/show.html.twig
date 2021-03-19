@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DelayMail{% endblock %}
+
+{% block body %}
+    <h1>DelayMail</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ delay_mail.id }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ delay_mail.email }}</td>
+            </tr>
+            <tr>
+                <th>Template</th>
+                <td>{{ delay_mail.template }}</td>
+            </tr>
+            <tr>
+                <th>CreacionAt</th>
+                <td>{{ delay_mail.creacionAt ? delay_mail.creacionAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Prioridad</th>
+                <td>{{ delay_mail.prioridad }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('delay_mail_index') }}">back to list</a>
+
+    <a href="{{ path('delay_mail_edit', {'id': delay_mail.id}) }}">edit</a>
+
+    {{ include('delay_mail/_delete_form.html.twig') }}
+{% endblock %}
