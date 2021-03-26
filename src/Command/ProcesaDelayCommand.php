@@ -13,7 +13,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 class ProcesaDelayCommand extends Command
 {
     protected static $defaultName = 'app:procesa-delay';
-    protected static $defaultDescription = 'Procesa los datos de delayMail';
+    protected static string $defaultDescription = 'Procesa los datos de delayMail';
 
     private HandlerDelayMail $delayMail;
 

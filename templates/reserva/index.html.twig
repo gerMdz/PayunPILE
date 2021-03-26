@@ -6,7 +6,8 @@
     {{ encore_entry_link_tags('app') }}
     <link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/igles.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('fonts/awasome/web-fonts-with-css/css/all.min.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 {% endblock %}
 {% block sslocal %}
     <link rel="stylesheet" type="text/css" href="{{ asset('css-misc/mdb.min.css') }}">
@@ -16,11 +17,11 @@
 
     <!-- Promo Content -->
     <div class="page-header-30 header-filter mt-5" data-parallax="true"
-         style="background-image: url({{ asset('images/base.jpg') }})">
+         style="background-image: url({{ asset('images/institucional/mix_auditorio.jpg') }})">
         <div class="container">
             <div class="row text-white">
                 <div class="col-md-6">
-                    <h2 class="title text-white-75">{{ base.siteName| default('Reserva') }}</h2>
+                    <h2 class="title text-white-75">Iglesia de la Alameda</h2>
                 </div>
             </div>
         </div>
@@ -52,7 +53,7 @@
                                 {{ "now"|date("m/d/Y  H:i") }}
                             </label>
                         </h3>
-                        {% set i = 0 %}
+                        {% set i = 1 %}
                         <div>
                             {% set f = 0 %}
                             {% if grupos is defined %}
@@ -60,7 +61,7 @@
                             {% if celebracion.grupo != i %}
                             {% set i = celebracion.grupo %}
                         </div>
-                        <div class="border shadow-blue mb-2 {{ celebracion.baseCss|default('border-alameda') }}">
+                        <div class="border shadow-blue mb-2 {{ celebracion.baseCss|default('border-alameda') }}" id="{{ i }}">
                         <div class="col-sm-12 shadow-normal">
                             <h3 class="text-14-300">
                                 <i class="text-{{ celebracion.btonCss|default('alameda') }}">
@@ -100,14 +101,14 @@
                                 <small class="text-dark ">
                                     Capacidad permitida alcanzada
                                 </small>
-{#                                Hasta que tengamos un server de correo #}
-{#                                <a class="btn btn-sm btn-outline-warning btn-modal"#}
-{#                                   href="{{ path('add_to_waiting_list', {'celebracion':celebracion.id}) }}"#}
-{#                                >#}
-{#                                    <i class="fas fa-bell"> </i>#}
-{#                                    Avisarme por mail si hay asientos disponibles#}
-{#                                </a>#}
-{#                                fin de Hasta#}
+                                {# Hasta que tengamos un server de correo #}
+                                {# <a class="btn btn-sm btn-outline-warning btn-modal" #}
+                                {# href="{{ path('add_to_waiting_list', {'celebracion':celebracion.id}) }}" #}
+                                {# > #}
+                                {# <i class="fas fa-bell"> </i> #}
+                                {# Avisarme por mail si hay asientos disponibles #}
+                                {# </a> #}
+                                {# fin de Hasta #}
                             {% endif %}
                             <hr/>
                         </div>
@@ -164,12 +165,13 @@
                                 Pronto estaremos contigo.
                             {% endif %}
                             {% endif %}
-                            <div class="col-sm-12">
-                                <a class="btn btn-primary" href="{{ path('reserva_consulta') }}">
-                                    Consultá tu reserva
-                                </a>
-                            </div>
 
+
+                        </div>
+                        <div class="col-sm-12">
+                            <a class="btn btn-primary" href="{{ path('reserva_consulta') }}">
+                                Consultá tu reserva
+                            </a>
                         </div>
                     </div>
                 </div>
