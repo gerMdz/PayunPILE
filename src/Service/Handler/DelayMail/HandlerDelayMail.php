@@ -64,6 +64,25 @@ class HandlerDelayMail
         $this->em->flush();
     }
 
+
+    /**
+     * @param Celebracion $celebracion
+     */
+    public function grabaAvisoLugar(Celebracion $celebracion):void
+    {
+        $esperan = $celebracion->getWaitingLists();
+        foreach ($esperan as $espera) {
+            $delay_mail = new DelayMail();
+            $delay_mail->setEmail($espera->getEmail());
+            $delay_mail->setTemplate(self::TEMPLATE_LUGAR);
+            $delay_mail->setPrioridad(3);
+            $delay_mail->setEntity($espera->getId());
+            $this->em->persist($delay_mail);
+        }
+
+        $this->em->flush();
+    }
+
     /**
      * @param Celebracion $celebracion
      * @return WaitingList[]|Collection
@@ -97,21 +116,51 @@ class HandlerDelayMail
 
     }
 
-    public function enviaMail()
+    public function enviaMail(): int
     {
-
         $delayMail = $this->delayMailRepository->findDelayMail();
 
+        $i = 0;
         foreach ($delayMail as $dm){
+            $i ++;
+            $this->direcciona($dm->getTemplate(), $dm->getEntity());
+            $this->em->remove($dm);
+            $this->em->flush();
 
-            $reservante = $this->reservanteRepository->find($dm->getEntity());
-            try {
-                $this->mailer->sendReservaMessage($reservante);
-                $this->em->remove($dm);
-                $this->em->flush();
-            } catch (TransportExceptionInterface $e) {
-            }
         }
+         return $i;
+
+    }
+
+    private function mailReservante($dm)
+    {
+        $reservante = $this->reservanteRepository->find($dm);
+        try {
+            $this->mailer->sendReservaMessage($reservante);
+
+
+        } catch (TransportExceptionInterface $e) {
+
+        }
+    }
+
+    private function direcciona($template, $dm)
+    {
+        switch ($template) {
+            case self::TEMPLATE_RESERVA:
+                $this->mailReservante($dm);
+                break;
+            case self::TEMPLATE_LUGAR:
+                echo "i es igual a 1";
+                break;
+            case self::TEMPLATE_REGISTRO:
+                echo "i es igual a 2";
+                break;
+            case self::TEMPLATE_RESERVA_INVITADO:
+                echo "i es igual a 3";
+                break;
+        }
+
     }
 
 

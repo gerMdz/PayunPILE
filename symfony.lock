@@ -123,6 +123,9 @@
     "gedmo/doctrine-extensions": {
         "version": "v2.4.41"
     },
+    "hashids/hashids": {
+        "version": "4.1.0"
+    },
     "imagine/imagine": {
         "version": "1.2.3"
     },

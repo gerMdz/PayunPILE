@@ -33,7 +33,7 @@ class ReservaSubscriber implements EventSubscriberInterface
         if($this->handlerCelebracion->hayLugar($event->getData())){
 
             try {
-                $this->mailer->sendAvisoLugarMessage($event->getData());
+                $this->handlerDelayMail->grabaAvisoLugar($event->getData());
             } catch (TransportExceptionInterface $e) {
             }
         }

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}QueueTransport index{% endblock %}
+
+{% block body %}
+    <h1>QueueTransport index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Queue</th>
+                <th>IsBlock</th>
+                <th>InicioAt</th>
+                <th>FinalAt</th>
+                <th>Hashkey</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for queue_transport in queue_transports %}
+            <tr>
+                <td>{{ queue_transport.id }}</td>
+                <td>{{ queue_transport.queue }}</td>
+                <td>{{ queue_transport.isBlock ? 'Yes' : 'No' }}</td>
+                <td>{{ queue_transport.inicioAt ? queue_transport.inicioAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ queue_transport.finalAt ? queue_transport.finalAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ queue_transport.hashkey }}</td>
+                <td>
+                    <a href="{{ path('queue_transport_show', {'id': queue_transport.id}) }}">show</a>
+                    <a href="{{ path('queue_transport_edit', {'id': queue_transport.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('queue_transport_new') }}">Create new</a>
+{% endblock %}

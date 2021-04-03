@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}QueueTransport{% endblock %}
+
+{% block body %}
+    <h1>QueueTransport</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ queue_transport.id }}</td>
+            </tr>
+            <tr>
+                <th>Queue</th>
+                <td>{{ queue_transport.queue }}</td>
+            </tr>
+            <tr>
+                <th>IsBlock</th>
+                <td>{{ queue_transport.isBlock ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>InicioAt</th>
+                <td>{{ queue_transport.inicioAt ? queue_transport.inicioAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>FinalAt</th>
+                <td>{{ queue_transport.finalAt ? queue_transport.finalAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Hashkey</th>
+                <td>{{ queue_transport.hashkey }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('queue_transport_index') }}">back to list</a>
+
+    <a href="{{ path('queue_transport_edit', {'id': queue_transport.id}) }}">edit</a>
+
+    {{ include('queue_transport/_delete_form.html.twig') }}
+{% endblock %}

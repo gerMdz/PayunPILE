@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit QueueTransport{% endblock %}
+
+{% block body %}
+    <h1>Edit QueueTransport</h1>
+
+    {{ include('queue_transport/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('queue_transport_index') }}">back to list</a>
+
+    {{ include('queue_transport/_delete_form.html.twig') }}
+{% endblock %}
