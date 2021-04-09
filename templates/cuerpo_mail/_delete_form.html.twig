@@ -1,0 +1,5 @@
+<form method="post" action="{{ path('cuerpo_mail_delete', {'id': cuerpo_mail.id}) }}" onsubmit="return confirm('Está seguro de borrar este item?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ cuerpo_mail.id) }}">
+    <button class="btn">Borrar</button>
+</form>

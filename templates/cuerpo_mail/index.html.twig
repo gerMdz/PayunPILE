@@ -1,0 +1,95 @@
+{% extends 'base_admin_board.html.twig' %}
+
+{% block title %}Mails Listado{% endblock %}
+
+{% block nav %}
+    {{ include('admin/_nav.html.twig',  {'marca_label': 'Celebraciones'}) }}
+{% endblock %}
+{% block content %}
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title ">Mails</h4>
+                <p class="card-category"> Listado de mails redactados </p>
+            </div>
+            <div class="card-body">
+                <a class="btn btn-sm btn-info btn-round" href="{{ path('cuerpo_mail_new') }}">
+                    <i class="fas fa-plus-circle"></i> Agregar Mail</a>
+                <div class="table-responsive ">
+                    <table class="table table-responsive-sm table-striped ">
+                        <thead>
+                        <tr class="text-left">
+                            <th>Id</th>
+                            <th>Texto</th>
+                            <th>Activo?</th>
+                            <th>Habilitado?</th>
+                            <th>Texto firma</th>
+                            <th>Nombre</th>
+                            <th>Identificador</th>
+                            <th><i class="fa fa-cogs"></i></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for cuerpo_mail in cuerpo_mails %}
+                            <tr class="text-left">
+                                <td>{{ cuerpo_mail.id }}</td>
+                                <td>{{ cuerpo_mail.texto | u.truncate(15, '...') }}</td>
+                                <td>{{ cuerpo_mail.isActivo ? 'Si' : 'No' }}</td>
+                                <td>{{ cuerpo_mail.isHability ? 'Si' : 'No' }}</td>
+                                <td>{{ cuerpo_mail.textofirma }}</td>
+                                <td>{{ cuerpo_mail.nombre }}</td>
+                                <td>{{ cuerpo_mail.identificador }}</td>
+                                <td>
+                                    <a href="{{ path('cuerpo_mail_show', {'id': cuerpo_mail.id}) }}"
+                                       class="btn-modal">
+                                        {{ include('bases/_ver.html.twig') }}
+                                    </a>
+                                    <a href="{{ path('cuerpo_mail_edit', {'id': cuerpo_mail.id}) }}">
+                                        {{ include('bases/_editar.html.twig') }}
+                                    </a>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="8">No se encontraron mails redactados</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a href="#"></a>
+
+                <a href="{{ path('cuerpo_mail_new') }}">
+                    {{ include('bases/_crear_nuevo.html.twig', {'button_label': 'Agregar mail'}) }}
+                </a>
+            </div>
+        </div>
+    </div>
+    {% include('admin/_modal.html.twig') %}
+{% endblock %}
+
+{% block jslocal %}
+    {{ parent() }}
+    <script>
+        $('#celebracion').addClass('active');
+    </script>
+
+    <script type="application/javascript">
+        $(function () {
+            $(".btn-modal").click(function (ev) {
+                ev.preventDefault();
+                const target = $(this).attr("href");
+                $("#modalPlantillaWeb .modal-content").load(target, function () {
+                    $("#modalPlantillaWeb").modal("show");
+                });
+            });
+        });
+
+
+    </script>
+
+    {{ encore_entry_script_tags('section_select') }}
+{% endblock %}

@@ -1,6 +1,10 @@
 {% extends 'base_admin_board.html.twig' %}
 
 {% block title %}Nuevo grupo de celebración{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_style_tags('section2_form') }}
+{% endblock %}
 
 {% block content %}
     <h1>Crear nuevo grupo de celebración</h1>
@@ -8,4 +12,22 @@
     {{ include('group_celebration/_form.html.twig') }}
 
     <a href="{{ path('group_celebration_index') }}">Volver al listado</a>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script type="application/javascript">
+        $(function () {
+            $(".btn-modal").click(function (ev) {
+                ev.preventDefault();
+                const target = $(this).attr("href");
+                $("#modalPlantillaWeb .modal-content").load(target, function () {
+                    $("#modalPlantillaWeb").modal("show");
+                });
+            });
+        });
+
+
+    </script>
+
+{#    {{ encore_entry_script_tags('select2_form') }}#}
 {% endblock %}

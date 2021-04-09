@@ -1,0 +1,32 @@
+{% extends 'base_admin_board.html.twig' %}
+
+{% block title %}Editar Mail{% endblock %}
+
+{% block nav %}
+    {{ include('admin/_nav.html.twig',  {'marca_label': 'Celebraciones'}) }}
+{% endblock %}
+{% block content %}
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header card-header-primary">
+
+            <h4 class="card-title ">Mail</h4>
+            <p class="card-category"> Editar mail </p>
+        </div>
+        <div class="card-body">
+
+    {{ include('cuerpo_mail/_form.html.twig', {'button_label': 'Actualizar'}) }}
+
+        </div>
+    </div>
+    <div class="card-footer">
+        <a href="#"></a>
+
+    <a href="{{ path('cuerpo_mail_index') }}">
+        {{ include('bases/_volver.html.twig') }}
+    </a>
+
+    {{ include('cuerpo_mail/_delete_form.html.twig') }}
+    </div>
+</div>
+{% endblock %}

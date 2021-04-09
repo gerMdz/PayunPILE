@@ -319,5 +319,17 @@ class Celebracion
         return $this;
     }
 
+    public function getCuerpoMail(): ?CuerpoMail
+    {
+        return $this->cuerpoMail;
+    }
+
+    public function setCuerpoMail(?CuerpoMail $cuerpoMail): self
+    {
+        $this->cuerpoMail = $cuerpoMail;
+
+        return $this;
+    }
+
 
 }

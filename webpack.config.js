@@ -3,6 +3,9 @@ const PurgeCssPlugin = require('purgecss-webpack-plugin');
 const glob = require('glob-all');
 const path = require('path');
 
+
+ // create global $ and jQuery variables
+
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
 if (!Encore.isRuntimeEnvironmentConfigured()) {
@@ -11,7 +14,7 @@ if (!Encore.isRuntimeEnvironmentConfigured()) {
 
 Encore
     // directory where compiled assets will be stored
-    .setOutputPath('public/build/')
+    .setOutputPath('public_html/build/')
     // public path used by the web server to access the output path
     .setPublicPath('/build')
     // only needed for CDN's or sub-directory deploy
@@ -30,6 +33,7 @@ Encore
     .addEntry('login', './assets/js/login.js')
     .addEntry('perfil', './assets/js/perfil.js')
     .addEntry('section_select', './assets/js/select_section.js')
+    .addEntry('select2_form', './assets/js/select2_form.js')
 
 
 
@@ -86,7 +90,11 @@ Encore
     //.enableIntegrityHashes(Encore.isProduction())
 
     // uncomment if you're having problems with a jQuery plugin
-    .autoProvidejQuery()
+     .autoProvidejQuery()
+
+
+
+    // global.$ = global.jQuery = $
 
 
     // uncomment if you use API Platform Admin (composer req api-admin)

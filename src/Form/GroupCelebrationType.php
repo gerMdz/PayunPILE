@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\CuerpoMail;
 use App\Entity\GroupCelebration;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -29,6 +31,14 @@ class GroupCelebrationType extends AbstractType
             ->add('imageFilename')
             ->add('title')
             ->add('orden')
+            ->add('mail', EntityType::class, [
+                'class'=> CuerpoMail::class,
+                'placeholder' => 'Seleccione mail',
+                'attr'=>[
+                    'class' => 'select2-enable',
+                    'placeholder' => 'Seleccione mail'
+                ]
+            ])
         ;
     }
 

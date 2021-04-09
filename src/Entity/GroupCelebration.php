@@ -60,6 +60,11 @@ class GroupCelebration
      */
     private ?int $orden;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=CuerpoMail::class, inversedBy="groupCelebrations")
+     */
+    private $mail;
+
     public function __construct()
     {
         $this->celebraciones = new ArrayCollection();
@@ -167,6 +172,18 @@ class GroupCelebration
     public function setOrden(?int $orden): self
     {
         $this->orden = $orden;
+
+        return $this;
+    }
+
+    public function getMail(): ?CuerpoMail
+    {
+        return $this->mail;
+    }
+
+    public function setMail(?CuerpoMail $mail): self
+    {
+        $this->mail = $mail;
 
         return $this;
     }

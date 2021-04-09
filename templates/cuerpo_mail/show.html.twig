@@ -1,0 +1,59 @@
+<div class="modal-header panel-info">
+    {#    <h5 class="modal-title" id="exampleModalLabel">Datos </h5>#}
+</div>
+<div id="mail" class="modal-body">
+    <div class="card">
+        <div class="card-header card-header-primary">
+            <h4 class="card-title ">Datos Mail</h4>
+        </div>
+        <div class="card-body">
+            <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ cuerpo_mail.id }}</td>
+            </tr>
+            <tr>
+                <th>Texto</th>
+                <td>{{ cuerpo_mail.texto }}</td>
+            </tr>
+            <tr>
+                <th>Activo?</th>
+                <td>{{ cuerpo_mail.isActivo ? 'Si' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Habilitado?</th>
+                <td>{{ cuerpo_mail.isHability ? 'Si' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Texto firma</th>
+                <td>{{ cuerpo_mail.textofirma }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ cuerpo_mail.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Identificador</th>
+                <td>{{ cuerpo_mail.identificador }}</td>
+            </tr>
+        </tbody>
+    </table>
+        </div>
+        <div class="card-footer">
+
+    <a href="{{ path('cuerpo_mail_index') }}">
+        {{ include('bases/_volver.html.twig') }}
+    </a>
+
+    <a href="{{ path('cuerpo_mail_edit', {'id': cuerpo_mail.id}) }}">
+        {{ include('bases/_editar.html.twig') }}
+    </a>
+
+    {{ include('cuerpo_mail/_delete_form.html.twig') }}
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+</div>
