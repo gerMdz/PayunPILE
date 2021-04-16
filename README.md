@@ -33,6 +33,16 @@ Have a bug or an issue with this template? [Open a new issue](https://gitlab.com
 
 ## Custom Builds
 
+### Elementos iniciales
+
+- [x] Texto en los correos, ¿Que dirá el mail de confirmación?
+- [x] Logo de la página
+- [x] Logo del mail
+- [x] Imagen de fondo para la página
+- [x] Smtp de envío de los mails
+- [x] Configurar el cron para la cola de envíos
+- [x] Qué se reserva (asientos, lugar) en qué (reuniones, grupos)
+
 
 
 ## Bundle de Terceros
