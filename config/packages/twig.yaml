@@ -1,8 +1,8 @@
 twig:
   default_path: '%kernel.project_dir%/templates'
   paths:
-    'public_html/images': images
-    'public_html/css': styles
+    'public/images': images
+    'public/css': styles
   debug: '%kernel.debug%'
   strict_variables: '%kernel.debug%'
   form_themes: [ 'bootstrap_4_layout.html.twig' ]

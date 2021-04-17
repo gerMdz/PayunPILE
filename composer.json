@@ -2,7 +2,7 @@
     "type": "project",
     "license": "MIT",
     "description": "sistema de reservas",
-    "name": "reservation/symfony",
+    "name": "germdz/payunpile",
     "authors": [
         {
             "name": "Gerardo J. Montivero gerMdz",
@@ -14,7 +14,7 @@
         }
     ],
     "require": {
-        "php": "^7.1.3",
+        "php": "^7.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-json": "*",
@@ -58,7 +58,7 @@
     "require-dev": {
         "sensiolabs/security-checker": "^6.0",
         "symfony/debug-bundle": "*",
-        "symfony/maker-bundle": "^1.19",
+        "symfony/maker-bundle": "^1.30",
         "symfony/monolog-bundle": "^3.0",
         "symfony/profiler-pack": "*",
         "symfony/var-dumper": "*"
@@ -107,6 +107,6 @@
             "allow-contrib": true,
             "require": "4.4.*"
         },
-        "public-dir": "public_html"
+        "public-dir": "public"
     }
 }

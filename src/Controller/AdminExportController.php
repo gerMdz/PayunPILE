@@ -19,7 +19,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AdminExportController extends AbstractController
 {
-    const FILENAME = 'IglesiaAlameda';
+    const FILENAME = 'Reservas';
 
     /**
      * @Route("/invitado/{id}", name="admin_export_invitado", methods={"GET", "POST"})

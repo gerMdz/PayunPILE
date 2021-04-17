@@ -61,6 +61,11 @@ class MetaBase
      */
     private string $base;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private ?string $emailBase;
+
     public function __construct()
     {
         $this->base = 'index';
@@ -175,6 +180,18 @@ class MetaBase
     public function setBase(string $base): self
     {
         $this->base = $base;
+
+        return $this;
+    }
+
+    public function getEmailBase(): ?string
+    {
+        return $this->emailBase;
+    }
+
+    public function setEmailBase(string $emailBase): self
+    {
+        $this->emailBase = $emailBase;
 
         return $this;
     }

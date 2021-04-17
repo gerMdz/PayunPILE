@@ -22,6 +22,7 @@
                             <th>Meta Type</th>
                             <th>Meta Url</th>
                             <th>Site Name</th>
+                            <th>Site mail</th>
                             <th>acciones</th>
                         </tr>
                         </thead>
@@ -37,6 +38,7 @@
                                 <td>{{ meta_base.metaType }}</td>
                                 <td>{{ meta_base.metaUrl }}</td>
                                 <td>{{ meta_base.siteName | default('Reserva') }}</td>
+                                <td>{{ meta_base.emailBase| default('No tiene') }}</td>
                                 <td>
                                     <a href="{{ path('meta_base_edit', {'id': meta_base.id}) }}">
                                         {{ include('bases/_editar.html.twig') }}

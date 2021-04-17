@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\MetaBase;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -20,6 +21,12 @@ class MetaBaseType extends AbstractType
             ->add('metaType')
             ->add('metaUrl')
             ->add('siteName')
+            ->add('emailBase',EmailType::class,[
+                'invalid_message'=>'Por favor ingrese email que identifica al sitio',
+                'attr'=>[
+                    'placeholder'=> 'Email del sitio'
+                ]
+            ])
         ;
     }
 

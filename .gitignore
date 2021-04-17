@@ -6,13 +6,13 @@ node_modules
 /.env.local.php
 /.env.*.local
 /config/secrets/prod/prod.decrypt.private.php
-/public_html/bundles/
+/public/bundles/
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
 ###> symfony/webpack-encore-bundle ###
 /node_modules/
-/public_html/build/
+/public/build/
 npm-debug.log
 yarn-error.log
 /src/Migrations/
@@ -21,91 +21,91 @@ yarn-error.log
 
 
 ###> liip/imagine-bundle ###
-/public_html/media/cache/
+/public/media/cache/
 ###< liip/imagine-bundle ###
-/public_html/vendors/tilt/.babelrc
-/public_html/vendors/tilt/.jshintrc
-/public_html/vendors/tilt/.travis.yml
+/public/vendors/tilt/.babelrc
+/public/vendors/tilt/.jshintrc
+/public/vendors/tilt/.travis.yml
 /assets/images/series/no-temere/01-No-Temere.pdf
 /assets/images/series/no-temere/02-Encerrados.pdf
 /assets/images/series/no-temere/03-Realidad-Aumentada.pdf
-/public_html/vendors/bootstrap/
-/public_html/include/scss/
+/public/vendors/bootstrap/
+/public/include/scss/
 /src/DataFixtures/images/01-Ante-lo-inesperado.jpg
 /src/DataFixtures/images/02-Indomita.jpg
 /src/DataFixtures/images/03-Rescate-en-las-llamas.jpg
-/public_html/vendors/
+/public/vendors/
 /assets/images/
 /assets/fonts/
-/public_html/js/
+/public/js/
 /.php_cs.cache
-/public_html/stream-ui-kit/
-/public_html/business-casual/
-/public_html/material-kit/
-/public_html/shards-ui/
-/public_html/media/cache
+/public/stream-ui-kit/
+/public/business-casual/
+/public/material-kit/
+/public/shards-ui/
+/public/media/cache
 /migrations/Version20200617115938.php
 
-/public_html/vendors/tilt/
-/public_html/css/stream-ui-kit/assets/vendors/
-/public_html/fonts/awasome/
-/public_html/fonts/druk/
-/public_html/fonts/univers/
-/public_html/css/stream-ui-kit/assets/img/
-/public_html/css/stream-ui-kit/assets/img-temp/
-/public_html/css/stream-ui-kit/assets/include/
-/public_html/fonts/UniversLTStd-Obl.otf
-/public_html/fonts/Joyful Story.otf
-/public_html/fonts/Tuesnight.otf
-/public_html/fonts/onlinefontconverter.com.zip
-/public_html/fonts/Hoverage.otf
-/public_html/fonts/WarnockPro-ItSubh.otf
-/public_html/images/imagen-auditorio.jpg
-/public_html/images/imagen-auditorio-noche.jpg
-/public_html/images/logoYoutubeBrown.png
-/public_html/images/a2-fdoBlanco-ltrNaranja.jpg
-/public_html/images/imgMenu.png
-/public_html/images/qr-online.png
-/public_html/fonts/big_noodle_titling.ttf
-/public_html/fonts/GreatLakesNF.ttf
-/public_html/fonts/Black Diamond.otf
-/public_html/fonts/Matahati Regular.otf
-/public_html/css/stream-ui-kit/assets/js/vendors/
-/public_html/css/stream-ui-kit/starter-template.html
-/public_html/images/a2-fdoNegro-ltrBlanca.jpg
-/public_html/images/iglesiaAlamedaInstagram.jpg
-/public_html/images/logo-oracion.png
-/public_html/material-dashboard/examples/
-/public_html/material-dashboard/assets/demo/
-/public_html/material-dashboard/template.html
-/public_html/images/sidebar-1.jpg
+/public/vendors/tilt/
+/public/css/stream-ui-kit/assets/vendors/
+/public/fonts/awasome/
+/public/fonts/druk/
+/public/fonts/univers/
+/public/css/stream-ui-kit/assets/img/
+/public/css/stream-ui-kit/assets/img-temp/
+/public/css/stream-ui-kit/assets/include/
+/public/fonts/UniversLTStd-Obl.otf
+/public/fonts/Joyful Story.otf
+/public/fonts/Tuesnight.otf
+/public/fonts/onlinefontconverter.com.zip
+/public/fonts/Hoverage.otf
+/public/fonts/WarnockPro-ItSubh.otf
+/public/images/imagen-auditorio.jpg
+/public/images/imagen-auditorio-noche.jpg
+/public/images/logoYoutubeBrown.png
+/public/images/a2-fdoBlanco-ltrNaranja.jpg
+/public/images/imgMenu.png
+/public/images/qr-online.png
+/public/fonts/big_noodle_titling.ttf
+/public/fonts/GreatLakesNF.ttf
+/public/fonts/Black Diamond.otf
+/public/fonts/Matahati Regular.otf
+/public/css/stream-ui-kit/assets/js/vendors/
+/public/css/stream-ui-kit/starter-template.html
+/public/images/a2-fdoNegro-ltrBlanca.jpg
+/public/images/iglesiaAlamedaInstagram.jpg
+/public/images/logo-oracion.png
+/public/material-dashboard/examples/
+/public/material-dashboard/assets/demo/
+/public/material-dashboard/template.html
+/public/images/sidebar-1.jpg
 
-/public_html/material-dashboard/assets/demo/demo.css
-/public_html/material-dashboard/assets/demo/demo.js
+/public/material-dashboard/assets/demo/demo.css
+/public/material-dashboard/assets/demo/demo.js
 
-/public_html/images/pastores/abel-schwab.jpeg
-/public_html/images/pastores/abel-schwab.png
-/public_html/images/institucional/adolescentes.jpg
-/public_html/images/dar-online.jpg
-/public_html/images/pastores/fabianRuiz.png
-/public_html/icons/foundation-icons/svgs/
+/public/images/pastores/abel-schwab.jpeg
+/public/images/pastores/abel-schwab.png
+/public/images/institucional/adolescentes.jpg
+/public/images/dar-online.jpg
+/public/images/pastores/fabianRuiz.png
+/public/icons/foundation-icons/svgs/
 /docker/
 /docker-compose.yml
 /Makefile
 .env.local
-/public_html/fonts/ArialNova.ttf
-/public_html/images/institucional/qr-dom-11h.jpg
-/public_html/images/institucional/qr-dom-11h.png
-/public_html/images/institucional/qr-dom-20h.jpg
-/public_html/images/institucional/qr-dom-20h.png
-/public_html/images/institucional/qr-sab-20h.jpg
-/public_html/images/institucional/qr-sab-20h.png
-/public_html/images/institucional/indice.png
-/public_html/uploads/media/
-/public_html/images/LOGO_ALAMEDA_CON_TEXTO_B.png
-/public_html/images/institucional/qr-dom-10hs.jpg
-/public_html/images/institucional/qr-dom-21hs.jpg
-/public_html/images/institucional/qr-sab-21hs.jpg
+/public/fonts/ArialNova.ttf
+/public/images/institucional/qr-dom-11h.jpg
+/public/images/institucional/qr-dom-11h.png
+/public/images/institucional/qr-dom-20h.jpg
+/public/images/institucional/qr-dom-20h.png
+/public/images/institucional/qr-sab-20h.jpg
+/public/images/institucional/qr-sab-20h.png
+/public/images/institucional/indice.png
+/public/uploads/media/
+/public/images/LOGO_ALAMEDA_CON_TEXTO_B.png
+/public/images/institucional/qr-dom-10hs.jpg
+/public/images/institucional/qr-dom-21hs.jpg
+/public/images/institucional/qr-sab-21hs.jpg
 /otrosdatos.zip
 /vendor.zip
 /public/build/0.b1e6e474.js
@@ -113,7 +113,7 @@ yarn-error.log
 /public/build/1.d833abfb.css
 /public/build/app.785eb804.css
 /public/build/app.d1974271.js
-/public_html/build.zip
+/public/build.zip
 /public/build/images/cabecera_index.bd3c2723.jpg
 /public/build/images/cabecera_index.jpg
 /public/build/entrypoints.json
@@ -126,8 +126,8 @@ yarn-error.log
 /public/build/login.0477fc7d.css
 /public/build/loginStyle.0477fc7d.css
 /public/build/manifest.json
-/public_html/material-dashboard.zip
-/public_html/material-kit.zip
+/public/material-dashboard.zip
+/public/material-kit.zip
 /public/build/perfil.2a1e43b4.css
 /public/build/perfil.af72bd9b.js
 /public/build/perfilStyle.2a1e43b4.css

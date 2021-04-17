@@ -42,6 +42,7 @@ Have a bug or an issue with this template? [Open a new issue](https://gitlab.com
 - [x] Smtp de envío de los mails
 - [x] Configurar el cron para la cola de envíos
 - [x] Qué se reserva (asientos, lugar) en qué (reuniones, grupos)
+- [x] Mail del sitio (si no fallará el envío de mail)
 
 
 

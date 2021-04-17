@@ -8,6 +8,7 @@ use App\Entity\Invitado;
 use App\Entity\Reservante;
 use App\Entity\WaitingList;
 use App\Repository\WaitingListRepository;
+use App\Service\Handler\Metabase\HandlerMetabase;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\MailerInterface;
@@ -19,6 +20,7 @@ class Mailer
     private MailerInterface $mailer;
     private Environment $twig;
     private WaitingListRepository $waitingListRepository;
+    private HandlerMetabase $handlerMetabase;
 
 
     /**
@@ -26,12 +28,14 @@ class Mailer
      * @param MailerInterface $mailer
      * @param Environment $twig
      * @param WaitingListRepository $waitingListRepository
+     * @param HandlerMetabase $handlerMetabase
      */
-    public function __construct(MailerInterface $mailer, Environment $twig, WaitingListRepository $waitingListRepository)
+    public function __construct(MailerInterface $mailer, Environment $twig, WaitingListRepository $waitingListRepository, HandlerMetabase $handlerMetabase)
     {
         $this->mailer = $mailer;
         $this->twig = $twig;
         $this->waitingListRepository = $waitingListRepository;
+        $this->handlerMetabase = $handlerMetabase;
     }
 
     /**
@@ -42,13 +46,14 @@ class Mailer
     public function sendReservaMessage(Reservante $reservante): TemplatedEmail
     {
         $email = (new TemplatedEmail())
-            ->from(new Address('contacto@iglesiaalameda.com', 'Iglesia de La Alameda'))
+            ->from(new Address($this->handlerMetabase->metadatos()->getEmailBase(), $this->handlerMetabase->metadatos()->getSiteName()))
             ->to(new Address($reservante->getEmail(), $reservante->getNombre()))
             ->subject('Confirmación de reserva')
             ->htmlTemplate('email/reserva.html.twig')
             ->context([
                 // You can pass whatever data you want
                 'reservante' => $reservante,
+                'base' => $this->handlerMetabase->metadatos()
             ]);
 
         $this->mailer->send($email);
@@ -64,13 +69,14 @@ class Mailer
     public function sendAvisoRegistroReservaMessage(WaitingList $espera): TemplatedEmail
     {
         $email = (new TemplatedEmail())
-            ->from(new Address('contacto@iglesiaalameda.com', 'Iglesia de La Alameda'))
+            ->from(new Address($this->handlerMetabase->metadatos()->getEmailBase(), $this->handlerMetabase->metadatos()->getSiteName()))
             ->to(new Address($espera->getEmail(), $espera->getNombre()))
             ->subject('Confirmación registro aviso de disponibilidad ')
             ->htmlTemplate('email/avisoRegistro.html.twig')
             ->context([
                 // You can pass whatever data you want
                 'espera' => $espera,
+                'base' => $this->handlerMetabase->metadatos()
             ]);
 
         $this->mailer->send($email);
@@ -91,14 +97,15 @@ class Mailer
         foreach ($esperan as $espera) {
 
             $email = (new TemplatedEmail())
-                ->from(new Address('contacto@iglesiaalameda.com', 'Iglesia de La Alameda'))
+                ->from(new Address($this->handlerMetabase->metadatos()->getEmailBase(), $this->handlerMetabase->metadatos()->getSiteName()))
                 ->to(new Address($espera->getEmail(), $espera->getNombre()))
                 ->subject('Aviso de disponibilidad')
                 ->htmlTemplate('email/avisoLugar.html.twig')
                 ->context([
                     // You can pass whatever data you want
                     'espera' => $espera,
-                    'celebracion' => $celebracion
+                    'celebracion' => $celebracion,
+                    'base' => $this->handlerMetabase->metadatos()
                 ]);
 
             $this->mailer->send($email);
@@ -111,13 +118,14 @@ class Mailer
     public function sendReservaInvitadoMessage(Invitado $reservante): TemplatedEmail
     {
         $email = (new TemplatedEmail())
-            ->from('contacto@iglesiaalameda.com')
+            ->from(new Address($this->handlerMetabase->metadatos()->getEmailBase(), $this->handlerMetabase->metadatos()->getSiteName()))
             ->to($reservante->getEmail())
             ->subject('Confirmación de reserva')
             ->htmlTemplate('email/reserva_invitado.html.twig')
             ->context([
                 // You can pass whatever data you want
                 'reservante' => $reservante,
+                'base' => $this->handlerMetabase->metadatos()
             ]);
 
         try {
@@ -127,6 +135,5 @@ class Mailer
 
         return $email;
     }
-
 
 }

@@ -76,6 +76,8 @@ class ReservaController extends AbstractController
                 $this->addFlash('success', 'Ya se encuentra una reservación para esta celebracion y con ese mail');
                 return $this->redirectToRoute('reserva_index');
             }
+            $telefono = $form['telefono']->getData();
+            $reservante->setTelefono($telefono);
 
             $em->persist($reservante);
 
@@ -165,9 +167,9 @@ class ReservaController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $email = $form['email']->getData();
 
-            $invitado = $entityManager->getRepository(Invitado::class)->findOneByCelebracionEmail($reservante->getCelebracion()->getId(), $email);
+            $data = $entityManager->getRepository(Invitado::class)->findOneByCelebracionEmail($reservante->getCelebracion()->getId(), $email);
 
-            if ($invitado) {
+            if ($data) {
                 $this->addFlash('success', 'Ya se encuentra una reservación para esta celebracion y con ese mail');
                 return $this->redirectToRoute('agrega_invitado', [
                     'id' => $reservante->getId()
@@ -230,7 +232,7 @@ class ReservaController extends AbstractController
                 'reservante' => $reservante
             ]);
         } else {
-            return $this->redirectToRoute('admin');
+            return $this->redirectToRoute('admin_panel');
         }
     }
 
