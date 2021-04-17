@@ -1,6 +1,6 @@
-# [Alameda - AlamedaCMS]
+# [Payunpile - Reservas]
 
-EL inicio de un CMS personalizado
+Reservas para tu ministerio
 
 ## NO hay pre
 
@@ -14,8 +14,8 @@ totalmente DEV
 ## Download and Installation
 
 
-* Clone the repo: `git clone https://github.com/gerMdz/alameda.git`
-* [Fork, Clone, or Download on GitHub](https://github.com/gerMdz/alameda)
+* Clone the repo: `git clone https://github.com/gerMdz/payunpile.git`
+* [Fork, Clone, or Download on GitHub](https://github.com/gerMdz/payunpile)
 
 ## Usage
 
@@ -29,7 +29,7 @@ Hasta ahora, la idea es templates modulares por sections, donde a cada template 
 
 ## Bugs and Issues
 
-Have a bug or an issue with this template? [Open a new issue](https://gitlab.com/gerardo.montivero/alameda/issues) here on GitLab or leave a comment on the [template overview page at AlamedaCMS](https://gitlab.com/gerardo.montivero/alameda/).
+Have a bug or an issue with this template? [Open a new issue](https://github.com/gerMdz/payunpile/issues) here on GitHub or leave a comment on the [template overview page at Payunpile](https://github.com/gerMdz/payunpile/).
 
 ## Custom Builds
 
