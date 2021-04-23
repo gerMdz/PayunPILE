@@ -4,8 +4,8 @@ Sistema de reservas para eventos
 
 
 ### ¿Que resuelve?
-Poder hacer reservas para eventos, definiendo horario y lugar,
-con envío de mail de confirmación, donde pueda tener pleno control
+Poder hacer reservas para eventos, definiendo horario y lugar, 
+con envío de mail de confirmación, donde pueda tener pleno control 
 del código, y con un [framework][1] líder en PHP como lo es [Symfony][1]
 Fácil de actualizar, fácil de mantener, con un árbol de directorios claro.
 
@@ -16,7 +16,7 @@ Tiene un manejo básico de usuarios para la administración de los contenidos.
 
 ### ¿Cómo lo obtengo?
 
-Para usar PayunPILE debes bajarlo de [github][8], y luego bajar sus
+Para usar PayunPILE debes bajarlo de [github][8], y luego bajar sus 
 dependencias de paquetes.
 
 ```
