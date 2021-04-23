@@ -7,6 +7,7 @@ use App\Entity\Celebracion;
 use App\Entity\Invitado;
 use App\Entity\Reservante;
 use App\Entity\WaitingList;
+use App\Repository\InvitadoRepository;
 use App\Repository\WaitingListRepository;
 use App\Service\Handler\Metabase\HandlerMetabase;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
@@ -20,6 +21,7 @@ class Mailer
     private MailerInterface $mailer;
     private Environment $twig;
     private WaitingListRepository $waitingListRepository;
+    private InvitadoRepository $repository;
     private HandlerMetabase $handlerMetabase;
 
 
@@ -28,13 +30,15 @@ class Mailer
      * @param MailerInterface $mailer
      * @param Environment $twig
      * @param WaitingListRepository $waitingListRepository
+     * @param InvitadoRepository $repository
      * @param HandlerMetabase $handlerMetabase
      */
-    public function __construct(MailerInterface $mailer, Environment $twig, WaitingListRepository $waitingListRepository, HandlerMetabase $handlerMetabase)
+    public function __construct(MailerInterface $mailer, Environment $twig, WaitingListRepository $waitingListRepository, InvitadoRepository $repository, HandlerMetabase $handlerMetabase)
     {
         $this->mailer = $mailer;
         $this->twig = $twig;
         $this->waitingListRepository = $waitingListRepository;
+        $this->repository = $repository;
         $this->handlerMetabase = $handlerMetabase;
     }
 
@@ -45,14 +49,17 @@ class Mailer
      */
     public function sendReservaMessage(Reservante $reservante): TemplatedEmail
     {
+
+        $invitados = $this->repository->count(['enlace' => $reservante->getId()]);
+
         $email = (new TemplatedEmail())
             ->from(new Address($this->handlerMetabase->metadatos()->getEmailBase(), $this->handlerMetabase->metadatos()->getSiteName()))
             ->to(new Address($reservante->getEmail(), $reservante->getNombre()))
             ->subject('Confirmación de reserva')
             ->htmlTemplate('email/reserva.html.twig')
             ->context([
-                // You can pass whatever data you want
                 'reservante' => $reservante,
+                'invitados' => $invitados,
                 'base' => $this->handlerMetabase->metadatos()
             ]);
 
@@ -135,5 +142,4 @@ class Mailer
 
         return $email;
     }
-
 }

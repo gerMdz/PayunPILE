@@ -56,6 +56,20 @@ Si no tiene instalado el binario de Symfony, ejecute `php -S localhost:8000 -t p
 para utilizar el servidor web PHP incorporado o [configure un servidor web][3] como Nginx o
 Apache para ejecutar la aplicación.
 
+### Elementos iniciales
+
+- [x] Texto en los correos, ¿Que dirá el mail de confirmación?
+- [x] Logo de la página [documentación][9]
+- [x] Logo del mail
+- [x] Imagen de fondo para la página
+- [x] Smtp de envío de los mails
+- [x] Configurar el cron para la cola de envíos
+- [x] Qué se reserva (asientos, lugar) en qué (reuniones, grupos)
+- [x] Mail del sitio (si no fallará el envío de mail)
+- [x] Creación de colas de envíos
+- [x] Creación de tareas de cron
+
+
 Tests
 -----
 
@@ -106,3 +120,4 @@ Uso [PhpStorm][5]
 [6]: https://github.com/gerMdz/payunpile
 [7]: https://germdz.github.io/incalinks/
 [8]: https://github.com/gerMdz/PayunPILE.git
+[9]: https://germdz.github.io/PayunPILE/logos-e-imagenes
