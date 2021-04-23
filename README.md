@@ -1,100 +1,108 @@
-# [Payunpile - Reservas]
+## Bienvenido a PayunPILE
 
-Reservas para tu ministerio
-
-## NO hay pre
-
-[![Grape Web Services](https://ar-gws.com)](https://ar-gws.com)
-
-**[View Live Preview](https://ar-gws.com)**
-
-## Status
-totalmente DEV
-
-## Download and Installation
+Sistema de reservas para eventos
 
 
-* Clone the repo: `git clone https://github.com/gerMdz/payunpile.git`
-* [Fork, Clone, or Download on GitHub](https://github.com/gerMdz/payunpile)
+### ¿Que resuelve?
+Poder hacer reservas para eventos, definiendo horario y lugar,
+con envío de mail de confirmación, donde pueda tener pleno control
+del código, y con un [framework][1] líder en PHP como lo es [Symfony][1]
+Fácil de actualizar, fácil de mantener, con un árbol de directorios claro.
 
-## Usage
+### ¿Qué más tiene?
 
-### Basic Usage
-
-Hasta ahora, la idea es templates modulares por sections, donde a cada template se le agregan sections
-
-### Advanced Usage
-
+Tiene un manejo básico de usuarios para la administración de los contenidos.
 
 
-## Bugs and Issues
+### ¿Cómo lo obtengo?
 
-Have a bug or an issue with this template? [Open a new issue](https://github.com/gerMdz/payunpile/issues) here on GitHub or leave a comment on the [template overview page at Payunpile](https://github.com/gerMdz/payunpile/).
+Para usar PayunPILE debes bajarlo de [github][8], y luego bajar sus
+dependencias de paquetes.
 
-## Custom Builds
-
-### Elementos iniciales
-
-- [x] Texto en los correos, ¿Que dirá el mail de confirmación?
-- [x] Logo de la página
-- [x] Logo del mail
-- [x] Imagen de fondo para la página
-- [x] Smtp de envío de los mails
-- [x] Configurar el cron para la cola de envíos
-- [x] Qué se reserva (asientos, lugar) en qué (reuniones, grupos)
-- [x] Mail del sitio (si no fallará el envío de mail)
+```
+git clone https://github.com/gerMdz/PayunPILE.git
+cd project
+composer install
+yarn install 
+```
 
 
+Requerimientos
+------------
 
-## Bundle de Terceros
+* PHP 7.2.9 o superior;
+* PDO-SQLite PHP extension enabled (o el PDO para tu base de datos);
+* y los [usuales requerimientos de una aplicación Symfony][2].
 
-Start Bootstrap is an open source library of free Bootstrap templates and themes. All of the free templates and themes on Start Bootstrap are released under the MIT license, which means you can use them for any purpose, even for commercial projects.
+Uso
+-----
 
-* https://startbootstrap.com
-* https://twitter.com/SBootstrap
+Las configuraciones básicas son
+* la URL de su base de datos ej.:
+    * DATABASE_URL=mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=5.7
+* el DSN de su servidor smtp de correos
+    * MAILER_DSN=smtp://localhost
 
-Start Bootstrap was created by and is maintained by **[David Miller](http://davidmiller.io/)**, Owner of [Blackrock Digital](http://blackrockdigital.io/).
+Luego con el binario de [Symfony][4], ejecute los siguientes comandos que crearan los datos básicos de usuarios y un contenido de inicio:
 
-* http://davidmiller.io
-* https://twitter.com/davidmillerskt
-* https://github.com/davidtmiller
+```bash
+$ php bin/console doctrine:fixtures:load
+$ symfony serve -d
+```
 
-Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
+Luego acceda a la aplicación en su navegador con la URL dada (<https://localhost:8000> generalmente).
 
-Foundation Icon Font Sets
+Si no tiene instalado el binario de Symfony, ejecute `php -S localhost:8000 -t public/`
+para utilizar el servidor web PHP incorporado o [configure un servidor web][3] como Nginx o
+Apache para ejecutar la aplicación.
 
-Custom icon sets that are stored in a handy web font. A couple lines of CSS and the right markup will get you going in no time. These icons use the Private Use Area Unicode slots to ensure full accessibility.
+Tests
+-----
 
-We designed the glyphs to be refined enough to stand alone as a simple icon, but left room for the imagination. Since you’ll be dealing with a font, the opportunities are nearly limitless. Now your icons can be any size, any color and any style available in CSS.
-Usage
+Ejecute este comando para correr los tests:
 
-    Download the icon font that you're interested in.
-    Merge the fonts and stylesheets, or sass if you are using it, folders into your Foundation project.
-    The default code is <i class="fi-[set]-[icon]"></i>, feel free to customize that to your needs.
-    Style the icons using any CSS style that could apply to text!
+```bash
+$ ./bin/phpunit
+```
 
-Repo Contents
 
-    README
-    MIT-LICENSE
-    Foundation Icons - General
-    Foundation Icons - General(Enclosed)
-    Foundation Icons - Social
-    Foundation Icons - Accessibility
+## Atajos de teclado
 
-ZURB
+#### Admin > Menú
+> Windows - Linux
 
-Foundation was made by ZURB, an interaction design and design strategy firm in Campbell, CA.
 
-If Foundation knocks your socks off the way we hope it does and you want more, why not check out our jobs?
+>Firefox 	Alt + Shift + m
+Google Chrome 	Alt + m
+Safari 	Alt + m
 
-## Copyright and License
 
-MIT Open Source License
+> Mac
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+>En Firefox 14 o posteriores, Control + Alt + m
+En Firefox 13 o anteriores, Control + m
+Control + Alt + m
+Control + Alt + m
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+> Cualquier S.O.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+>Opera 	Shift + Esc abre una lista de contenidos, los cuales son accesibles a través de accesskey, después se puede elegir un item presionando m
 
+
+#### PayunPILE se base en
+- [Symfony][1] framework PHP.
+- [Bootstrap](https://getbootstrap.com/) plantillas.
+- [FontAwesome](https://fortawesome.github.io/Font-Awesome/) icons.
+
+Con licencia [MIT](https://github.com/gerMdz/PayunPILE/blob/main/LICENSE)
+Uso [PhpStorm][5]
+
+
+[1]: https://symfony.com
+[2]: https://symfony.com/doc/current/reference/requirements.html
+[3]: https://symfony.com/doc/current/cookbook/configuration/web_server_configuration.html
+[4]: https://symfony.com/download
+[5]: https://jb.gg/OpenSource.
+[6]: https://github.com/gerMdz/payunpile
+[7]: https://germdz.github.io/incalinks/
+[8]: https://github.com/gerMdz/PayunPILE.git
