@@ -12,14 +12,15 @@
     {% set index = 'base' %}
 
     <meta name="description" content="{{ base.siteName|default('Reservas') }},  {{ base_metaDescripcion() }}">
-    <meta name="keywords" content="{{ base.siteName|default('Reservas')}},{{base.lema|default('Reservas')}},{{base_metaDescripcion()}}">
+    <meta name="keywords"
+          content="{{ base.siteName|default('Reservas') }},{{ base.lema|default('Reservas') }},{{ base_metaDescripcion() }}">
     <meta name="author" content="{{ base.metaAutor |default('Reservas') }}">
     <meta property="og:title" content="{{ base.metaTitle |default('Reservas') }}"/>
     <meta property="og:type" content="{{ base.metaTYpe |default('Reservas') }}"/>
     <meta property="og:url" content="{{ base.metaUrl |default('Reservas') }}"/>
     <meta property="og:image" content="{{ base.metaUrl |default('Reservas') }}{{ asset('images/og-base.png') }}">
-    <meta property="og:description" content="{{ base_lema() }},{{ base_metaDescripcion() }}" />
-    <meta property="og:site_name" content="{{ base.siteName |default('Reservas') }}" />
+    <meta property="og:description" content="{{ base_lema() }},{{ base_metaDescripcion() }}"/>
+    <meta property="og:site_name" content="{{ base.siteName |default('Reservas') }}"/>
     <link rel="shortcut icon" href="{{ asset('/images/institucional/indice.png') }}" type="image/x-icon">
     <title>{{ base.metaTitle |default('Reservas') }}</title>
     {# {% include('inicio/_favicon_html.twig') %} #}
@@ -129,46 +130,6 @@
 
 {% endblock %}
 
-<script>
-    // $(document).on('ready', function () {
-    //     // initialization of text animation (typing)
-    //     $(".js-display-typing").typed({
-    //         strings: [
-    //             "Viví la experiencia ",
-    //             "Alameda OnLine",
-    //         ],
-    //         typeSpeed: 90,
-    //         loop: true,
-    //         backDelay: 2500
-    //     });
-    // });
-</script>
-<script>
-    // let swiper = new Swiper('.swiper-container', {
-    //     effect: 'coverflow',
-    //     grabCursor: true,
-    //     centeredSlides: true,
-    //     slidesPerView: 'auto',
-    //     coverflowEffect: {
-    //         rotate: 50,
-    //         stretch: 0,
-    //         depth: 100,
-    //         modifier: 1,
-    //         slideShadows: true,
-    //     },
-    //     pagination: {
-    //         el: '.swiper-pagination',
-    //     },
-    //     autoplay: {
-    //         delay: 7500,
-    //         disableOnInteraction: false,
-    //     },
-    //     navigation: {
-    //         nextEl: '.swiper-button-next',
-    //         prevEl: '.swiper-button-prev',
-    //     },
-    // });
-</script>
 <script>
     $(document).ready(function () {
         $('[data-toggle="tooltip"]').tooltip({html: true, placement: "bottom"});
