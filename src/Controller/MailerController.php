@@ -4,7 +4,9 @@
 namespace App\Controller;
 
 use App\Entity\Invitado;
+use App\Entity\MetaBase;
 use App\Entity\Reservante;
+use App\Repository\MetaBaseRepository;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -14,6 +16,17 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MailerController extends AbstractController
 {
+    private MetaBaseRepository $metaBaseRepository;
+
+    /**
+     * MailerController constructor.
+     * @param MetaBaseRepository $metaBaseRepository
+     */
+    public function __construct(MetaBaseRepository $metaBaseRepository)
+    {
+        $this->metaBaseRepository = $metaBaseRepository;
+    }
+
     /**
      * @Route("/email/{id}", name="envia_mail" )
      * @param MailerInterface $mailer
@@ -25,7 +38,7 @@ class MailerController extends AbstractController
     {
         $email = $reservante->getEmail();
         $email = (new TemplatedEmail())
-            ->from('contacto@iglesiaalameda.com')
+            ->from($this->getMetabaseIndex()->getEmailBase())
             ->to($email)
             ->subject('Tu reserva fue realizada')
             ->text('Gracias por reservar')
@@ -58,7 +71,7 @@ class MailerController extends AbstractController
         $celebracion = $reservante->getCelebracion();
 
         $email = (new TemplatedEmail())
-            ->from('contacto@iglesiaalameda.com')
+            ->from($this->getMetabaseIndex()->getEmailBase())
             ->to($email)
             //->cc('cc@example.com')
             //->bcc('bcc@example.com')
@@ -76,5 +89,13 @@ class MailerController extends AbstractController
         $mailer->send($email);
 
 
+    }
+
+    /**
+     * @return MetaBase|null
+     */
+    private function getMetabaseIndex()
+    {
+        return $this->metaBaseRepository->findOneBy(['base'=>'index']);
     }
 }
