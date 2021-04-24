@@ -46,7 +46,7 @@ templates/email/reserva.html.twig
 `
 ```
 <a href="\{\{ base.metaUrl \}\}">
-  <img src="{{ email.image('@images/logo-mail.png') }}"  class="logo" alt="{{ reservante.celebracion.nombre }}">
+  <img src="\{{ email.image('@images/logo-mail.png') }}"  class="logo" alt="{{ reservante.celebracion.nombre }}">
 </a>
 ```
 
