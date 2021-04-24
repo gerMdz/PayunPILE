@@ -1,20 +1,21 @@
 {% apply inline_css(source('@styles/email.css')) %}
-<!doctype html>
-<html lang="en">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>{{ email.subject }}</title>
-</head>
-<body>
-<a href="{{ base.metaUrl }}">
-    <img src="{{ email.image('@images/logo-mail.png') }}"  class="logo" alt="{{ reservante.celebracion.nombre }}">
-</a>
-<h1>Hola {{ reservante.nombre }}!</h1>
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>{{ email.subject }}</title>
+    </head>
+    <body>
+    <a href="{{ base.metaUrl }}">
+        <img src="{{ email.image('@images/logo-mail.png') }}"  class="logo" alt="{{ reservante.celebracion.nombre }}">
+    </a>
+    <h1>Hola {{ reservante.nombre }} {{ reservante.apellido }}</h1>
     <br/><br/>
-    /*/*/*
-    TODO
-    /*/*/*
+    Hemos recibido su inscripción de {{ invitados }} personas para participar de la reunión del
+    {{ reservante.celebracion.fechaCelebracionAt| format_date(pattern="d 'de' MMMM HH:mm") }} hs.<br/>
+
+    Estamos entusiasmados de poder compartir juntos un tiempo de adoración y búsqueda de Dios.
     <br/>
 Estamos entusiasmados de poder verte el {{ reservante.celebracion.fechaCelebracionAt| format_date(pattern="d 'de' MMMM HH:mm") }},
 para la celebración "{{ reservante.celebracion.nombre }}". <br/>
@@ -37,15 +38,8 @@ para la celebración "{{ reservante.celebracion.nombre }}". <br/>
          src="{{ qr_code_data_uri(dirwebpresente, { size: 350, logo_path: reservante.celebracion.imageQr }) }}"/>
     <br/>
     Asegúrate tener el código en tu celular pues deberás mostrarlo al ingresar al auditorio:<br/>
-
-
     <br/>
-    <p>
-        /*/*/*
-        TODO
-        /*/*/*
 
-    </p>
-</body>
-</html>
+    </body>
+    </html>
 {% endapply %}

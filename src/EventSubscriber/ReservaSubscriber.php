@@ -2,7 +2,7 @@
 
 namespace App\EventSubscriber;
 
-use App\Entity\DelayMail;
+
 use App\Service\Handler\Celebracion\HandlerCelebracion;
 use App\Service\Handler\DelayMail\HandlerDelayMail;
 use App\Service\Mailer;
@@ -14,18 +14,24 @@ class ReservaSubscriber implements EventSubscriberInterface
 
     private HandlerCelebracion $handlerCelebracion;
     private HandlerDelayMail $handlerDelayMail;
+    private Mailer $mailer;
+    private string $queue_enable;
 
 
     /**
      * ReservaSubscriber constructor.
      * @param HandlerCelebracion $handlerCelebracion
      * @param HandlerDelayMail $handlerDelayMail
+     * @param Mailer $mailer
+     * @param string $queue_enable
      */
-    public function __construct(HandlerCelebracion $handlerCelebracion, HandlerDelayMail $handlerDelayMail)
+    public function __construct(HandlerCelebracion $handlerCelebracion, HandlerDelayMail $handlerDelayMail, Mailer $mailer, string $queue_enable)
     {
 
         $this->handlerCelebracion = $handlerCelebracion;
         $this->handlerDelayMail = $handlerDelayMail;
+        $this->mailer = $mailer;
+        $this->queue_enable = $queue_enable;
     }
 
     public function onAnulaReservaEvent($event)
@@ -40,9 +46,17 @@ class ReservaSubscriber implements EventSubscriberInterface
 
     }
 
+    /**
+     * @throws TransportExceptionInterface
+     */
     public function onCreaReservaEvent($event)
     {
-        $this->handlerDelayMail->grabaReserva($event->getData());
+
+        if($this->queue_enable == 'true') {
+            $this->handlerDelayMail->grabaReserva($event->getData());
+        }else {
+            $this->mailer->sendReservaMessage($event->getData());
+        }
     }
 
     public static function getSubscribedEvents(): array
