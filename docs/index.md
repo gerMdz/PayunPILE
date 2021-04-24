@@ -40,9 +40,9 @@ Uso
 Las configuraciones básicas son
 * la URL de su base de datos ej.:
     * DATABASE_URL=
-mysql://db_user:db_password
-@127.0.0.1:3306/
-db_name?serverVersion=5.7
+mysql://user:password
+@ip:port/
+db_name
 * el DSN de su servidor smtp de correos
     * MAILER_DSN=smtp://localhost
 
