@@ -17,37 +17,39 @@ class CuerpoMail
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\Column(type="string", length=510)
      */
-    private $texto;
+    private ?string $texto;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $isActivo;
+    private ?bool $isActivo;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $isHability;
+    private ?bool $isEnable;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $textofirma;
+    private ?string $textoFirma;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $nombre;
+    private ?string $nombre;
 
     /**
      * @ORM\Column(type="string", length=100, unique=true)
      */
-    private $identificador;
+    private ?string $identificador;
+
+    private ArrayCollection $celebracion;
 
     public function __toString()
     {
@@ -88,26 +90,26 @@ class CuerpoMail
         return $this;
     }
 
-    public function getIsHability(): ?bool
+    public function getIsEnable(): ?bool
     {
-        return $this->isHability;
+        return $this->isEnable;
     }
 
-    public function setIsHability(bool $isHability): self
+    public function setIsEnable(bool $isEnable): self
     {
-        $this->isHability = $isHability;
+        $this->isEnable = $isEnable;
 
         return $this;
     }
 
-    public function getTextofirma(): ?string
+    public function getTextoFirma(): ?string
     {
-        return $this->textofirma;
+        return $this->textoFirma;
     }
 
-    public function setTextofirma(string $textofirma): self
+    public function setTextoFirma(string $textoFirma): self
     {
-        $this->textofirma = $textofirma;
+        $this->textoFirma = $textoFirma;
 
         return $this;
     }
