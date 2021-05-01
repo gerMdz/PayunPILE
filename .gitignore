@@ -37,7 +37,6 @@ yarn-error.log
 /public/vendors/
 /assets/images/
 /assets/fonts/
-/public/js/
 /.php_cs.cache
 /public/stream-ui-kit/
 /public/business-casual/
@@ -134,4 +133,4 @@ yarn-error.log
 /public/build/runtime.9662464f.js
 /public/build/section_select.ce052716.js
 /templates.zip
-
+/public/bundles/
