@@ -88,9 +88,6 @@ yarn-error.log
 /public/images/dar-online.jpg
 /public/images/pastores/fabianRuiz.png
 /public/icons/foundation-icons/svgs/
-/docker/
-/docker-compose.yml
-/Makefile
 .env.local
 /public/fonts/ArialNova.ttf
 /public/images/institucional/qr-dom-11h.jpg
