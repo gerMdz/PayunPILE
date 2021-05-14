@@ -1,0 +1,59 @@
+version: '3.5'
+
+services:
+  payunpile-web:
+    container_name: payunpile-web
+    build:
+      context: ./docker/nginx
+      args:
+        UID: $U_ID
+    ports:
+      - 360:80
+    volumes:
+      - ./public:/appdata/www/public
+    depends_on:
+      - payunpile-be
+    networks:
+      - payunpile-network
+
+  payunpile-be:
+    container_name: payunpile-be
+    build:
+      context: docker/php
+      args:
+        UID: $U_ID
+        HOST: $HOST
+    environment:
+      PHP_IDE_CONFIG: serverName=Docker
+      PHP_XDEBUG_ENABLED: 1
+      XDEBUG_CONFIG: remote_host=$HOST remote_port=9005
+    volumes:
+      - ./:/appdata/www
+      - ~/.ssh/id_rsa:/home/appuser/.ssh/id_rsa
+#    depends_on:
+#      - payunpile-db
+    networks:
+      - payunpile-network
+
+#  payunpile-db:
+#    container_name: payunpile-db
+#    image: mariadb:10.1.47
+#    ports:
+#      - 36000:3306
+#    environment:
+#      MYSQL_DATABASE: symfony_db
+#      MYSQL_USER: user
+#      MYSQL_PASSWORD: password
+#      MYSQL_ROOT_PASSWORD: root
+#    command: mysqld --sql_mode="STRICT_ALL_TABLES,NO_ENGINE_SUBSTITUTION"
+#    volumes:
+#      - payunpile-db-data:/var/lib/mysql
+#    networks:
+#      - payunpile-network
+
+#volumes:
+#  payunpile-db-data:
+
+networks:
+  payunpile-network:
+    external: true
