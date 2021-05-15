@@ -4,11 +4,22 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+    env(SITE_BASE_URL): '%env(SITE_BASE_SCHEME)%://%env(SITE_BASE_HOST)%'
     uploads_dir_name: 'uploads'
     uploads_base_url: '%env(SITE_BASE_URL)%/%uploads_dir_name%'
     site_temporal: '%env(SITE_TEMPORAL)%'
     image_directory : '%kernel.project_dir%/public/image'
     queue_enable : '%env(QUEUE_ENABLE)%'
+    ######
+    # En symfony >5.1 usar esta configuración
+    # config/packages/routing.yaml
+    #framework:
+    #    router:
+    #        # ...
+    #        default_uri: 'https://example.org/my/path/'
+    router.request_context.scheme: '%env(SITE_BASE_SCHEME)%'
+    router.request_context.host: '%env(SITE_BASE_HOST)%'
+    ######
 
 services:
     # default configuration for services in *this* file

@@ -28,8 +28,8 @@ class ProcesaDelayCommand extends Command
 
     public function __construct(HandlerDelayMail $delayMail)
     {
-        $this->delayMail = $delayMail;
         parent::__construct();
+        $this->delayMail = $delayMail;
 
     }
 
@@ -48,7 +48,7 @@ class ProcesaDelayCommand extends Command
 
 
         $output->writeln('Delay Procesado!');
-//        $io->success('You have a new command! Now make it your own! Pass --help to see your options.');
+        $io->success('Ok.');
 
         return 0;
     }

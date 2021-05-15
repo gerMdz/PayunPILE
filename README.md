@@ -33,6 +33,8 @@ Requerimientos
 * PHP 7.2.9 o superior;
 * PDO-SQLite PHP extension enabled (o el PDO para tu base de datos);
 * y los [usuales requerimientos de una aplicación Symfony][2].
+* para poder generar los pdf se necesita tener instalado wkhtmltopdf en su systema
+
 
 Uso
 -----
