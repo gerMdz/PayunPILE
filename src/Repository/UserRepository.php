@@ -57,6 +57,7 @@ class UserRepository extends ServiceEntityRepository
 //            $qb->orderBy('u.email', 'ASC')
 //
 //            ;
+
         return $qb
             ->setMaxResults($limit)
             ->getQuery()
@@ -75,4 +76,16 @@ class UserRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function getRolesAdmin()
+    {
+        $qb = $this->createQueryBuilder('u')
+            ->andWhere('u.roles LIKE :roles')
+            ->setParameter('roles', '%ROLE_ADMIN%');
+        ;
+        return $qb
+        ->getQuery()
+        ->getResult();
+
+    }
 }
