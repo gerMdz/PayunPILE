@@ -22,10 +22,10 @@ class HandlerCelebracion
      * @param CelebracionRepository $celebracionRepository
      */
     public function __construct(InvitadoRepository $invitadoRepository, CelebracionRepository $celebracionRepository)
-{
-    $this->invitadoRepository = $invitadoRepository;
-    $this->celebracionRepository = $celebracionRepository;
-}
+    {
+        $this->invitadoRepository = $invitadoRepository;
+        $this->celebracionRepository = $celebracionRepository;
+    }
 
     /**
      * @param Celebracion $celebracion
@@ -33,10 +33,10 @@ class HandlerCelebracion
      */
     public function hayLugar(Celebracion $celebracion): bool
     {
-       $ocupadas = $this->invitadoRepository->countByCelebracion($celebracion->getId());
-       $lugares = $celebracion->getCapacidad();
+        $ocupadas = $this->invitadoRepository->countByCelebracion($celebracion->getId());
+        $lugares = $celebracion->getCapacidad();
 
-       return $lugares > $ocupadas;
+        return $lugares > $ocupadas;
     }
 
     /**
@@ -65,13 +65,13 @@ class HandlerCelebracion
     {
         $invitados = [];
 
-        foreach($celebracion->getInvitados() as $invitado ){
+        foreach ($celebracion->getInvitados() as $invitado) {
             array_push($invitado, $invitado->getEmail());
         }
-            return $invitados;
+
+        return $invitados;
 
     }
-
 
 
 }

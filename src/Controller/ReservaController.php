@@ -40,7 +40,6 @@ class ReservaController extends AbstractController
     {
 
         $grupos = $groupCelebrationRepository->puedeMostrarse()->getQuery()->getResult();
-//        dd($grupos[0]->getCelebraciones()[1]);
         if (!$grupos) {
             $grupos = null;
         }

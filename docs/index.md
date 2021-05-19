@@ -61,12 +61,11 @@ Apache para ejecutar la aplicación.
 
 ### Elementos iniciales
 
-- [x] Texto en los correos, ¿Que dirá el mail de confirmación?
-- [x] Logo de la página [documentación][9]
-- [x] Logo del mail
-- [x] Imagen de fondo para la página
-- [x] Smtp de envío de los mails
-- [x] Configurar el cron para la cola de envíos
+- [x] Texto en los correos, ¿Que dirá el mail de confirmación? 
+  [ver][10]
+- [x] Logo de la página [ver][9]
+- [x] Smtp de envío de los mails [ver][11]
+- [x] Configurar el cron para la cola de envíos [ver](https://germdz.github.io/PayunPILE/queue)
 - [x] Qué se reserva (asientos, lugar) en qué (reuniones, grupos)
 - [x] Mail del sitio (si no fallará el envío de mail)
 - [x] Creación de colas de envíos
@@ -112,6 +111,7 @@ Control + Alt + m
 - [FontAwesome](https://fortawesome.github.io/Font-Awesome/) icons.
 
 Con licencia [MIT](https://github.com/gerMdz/PayunPILE/blob/main/LICENSE)
+
 Uso [PhpStorm][5]
 
 
@@ -124,3 +124,5 @@ Uso [PhpStorm][5]
 [7]: https://germdz.github.io/incalinks/
 [8]: https://github.com/gerMdz/PayunPILE.git
 [9]: https://germdz.github.io/PayunPILE/logos-e-imagenes
+[10]: https://germdz.github.io/PayunPILE/correos
+[11]: https://germdz.github.io/PayunPILE/smtp

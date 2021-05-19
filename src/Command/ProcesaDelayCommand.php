@@ -50,8 +50,8 @@ class ProcesaDelayCommand extends Command
             '',
         ]);
 
-//        $this->delayMail->enviaMail();
-        $this->mailerReport->sendReport();
+        $this->delayMail->enviaMail();
+//        $this->mailerReport->sendReport();
 
 
         $output->writeln('Delay Procesado!');
