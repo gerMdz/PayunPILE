@@ -23,6 +23,7 @@
         "gedmo/doctrine-extensions": "^2.4",
         "hashids/hashids": "^4.1",
         "knplabs/knp-paginator-bundle": "^5.2",
+        "knplabs/knp-snappy-bundle": "^1.8",
         "knplabs/knp-time-bundle": "^1.11",
         "laminas/laminas-code": "^3.4",
         "laminas/laminas-eventmanager": "^3.2",

@@ -34,7 +34,7 @@ class MailerController extends AbstractController
      * @return RedirectResponse
      * @throws TransportExceptionInterface
      */
-    public function sendEmail(MailerInterface $mailer, Reservante $reservante)
+    public function sendEmail(MailerInterface $mailer, Reservante $reservante): RedirectResponse
     {
         $email = $reservante->getEmail();
         $email = (new TemplatedEmail())

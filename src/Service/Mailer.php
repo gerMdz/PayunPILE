@@ -2,7 +2,6 @@
 
 namespace App\Service;
 
-
 use App\Entity\Celebracion;
 use App\Entity\Invitado;
 use App\Entity\Reservante;
@@ -81,7 +80,6 @@ class Mailer
             ->subject('Confirmación registro aviso de disponibilidad ')
             ->htmlTemplate('email/avisoRegistro.html.twig')
             ->context([
-                // You can pass whatever data you want
                 'espera' => $espera,
                 'base' => $this->handlerMetabase->metadatos()
             ]);
@@ -109,7 +107,6 @@ class Mailer
                 ->subject('Aviso de disponibilidad')
                 ->htmlTemplate('email/avisoLugar.html.twig')
                 ->context([
-                    // You can pass whatever data you want
                     'espera' => $espera,
                     'celebracion' => $celebracion,
                     'base' => $this->handlerMetabase->metadatos()
@@ -130,7 +127,6 @@ class Mailer
             ->subject('Confirmación de reserva')
             ->htmlTemplate('email/reserva_invitado.html.twig')
             ->context([
-                // You can pass whatever data you want
                 'reservante' => $reservante,
                 'base' => $this->handlerMetabase->metadatos()
             ]);
