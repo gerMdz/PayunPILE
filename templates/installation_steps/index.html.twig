@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}InstallationSteps index{% endblock %}
+
+{% block body %}
+    <h1>InstallationSteps index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Create_at</th>
+                <th>Update_at</th>
+                <th>Is_admin</th>
+                <th>Name_event</th>
+                <th>Is_logo</th>
+                <th>Is_base</th>
+                <th>Is_config_mailer</th>
+                <th>Is_metabase</th>
+                <th>Is_available</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for installation_step in installation_steps %}
+            <tr>
+                <td>{{ installation_step.id }}</td>
+                <td>{{ installation_step.name }}</td>
+                <td>{{ installation_step.createAt ? installation_step.createAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ installation_step.updateAt ? installation_step.updateAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ installation_step.isAdmin ? 'Yes' : 'No' }}</td>
+                <td>{{ installation_step.nameEvent }}</td>
+                <td>{{ installation_step.isLogo ? 'Yes' : 'No' }}</td>
+                <td>{{ installation_step.isBase ? 'Yes' : 'No' }}</td>
+                <td>{{ installation_step.isConfigMailer ? 'Yes' : 'No' }}</td>
+                <td>{{ installation_step.isMetabase ? 'Yes' : 'No' }}</td>
+                <td>{{ installation_step.isAvailable ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('installation_steps_show', {'id': installation_step.id}) }}">show</a>
+                    <a href="{{ path('installation_steps_edit', {'id': installation_step.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('installation_steps_new') }}">Create new</a>
+{% endblock %}

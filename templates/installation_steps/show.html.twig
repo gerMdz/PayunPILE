@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}InstallationSteps{% endblock %}
+
+{% block body %}
+    <h1>InstallationSteps</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ installation_step.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ installation_step.name }}</td>
+            </tr>
+            <tr>
+                <th>Create_at</th>
+                <td>{{ installation_step.createAt ? installation_step.createAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Update_at</th>
+                <td>{{ installation_step.updateAt ? installation_step.updateAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Is_admin</th>
+                <td>{{ installation_step.isAdmin ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Name_event</th>
+                <td>{{ installation_step.nameEvent }}</td>
+            </tr>
+            <tr>
+                <th>Is_logo</th>
+                <td>{{ installation_step.isLogo ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Is_base</th>
+                <td>{{ installation_step.isBase ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Is_config_mailer</th>
+                <td>{{ installation_step.isConfigMailer ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Is_metabase</th>
+                <td>{{ installation_step.isMetabase ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Is_available</th>
+                <td>{{ installation_step.isAvailable ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('installation_steps_index') }}">back to list</a>
+
+    <a href="{{ path('installation_steps_edit', {'id': installation_step.id}) }}">edit</a>
+
+    {{ include('installation_steps/_delete_form.html.twig') }}
+{% endblock %}
