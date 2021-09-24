@@ -20,7 +20,7 @@ class Reservante
      * @ORM\GeneratedValue(strategy="CUSTOM")
      * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidGenerator")
      */
-    protected $id;
+    protected string $id;
     /**
      * @ORM\ManyToOne(targetEntity=Celebracion::class, inversedBy="reservantes")
      * @ORM\JoinColumn(nullable=false)
@@ -71,11 +71,12 @@ class Reservante
     public function __construct()
     {
         $this->invitados = new ArrayCollection();
+        $this->id = Uuid::uuid4()->toString();
     }
 
 
 
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
