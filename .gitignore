@@ -131,3 +131,13 @@ yarn-error.log
 /public/build/section_select.ce052716.js
 /templates.zip
 /public/bundles/
+
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###
+
+###> symfony/phpunit-bridge ###
+.phpunit.result.cache
+/phpunit.xml
+###< symfony/phpunit-bridge ###

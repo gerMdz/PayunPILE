@@ -142,4 +142,31 @@ class Mailer
 
         return $email;
     }
+
+    /**
+     * @param Reservante $reservante
+     * @return TemplatedEmail
+     * @throws TransportExceptionInterface
+     */
+    public function sendReservaMessageTest(Reservante $reservante): TemplatedEmail
+    {
+
+//        $invitados = $this->repository->count(['enlace' => $reservante->getId()]);
+
+        $email = (new TemplatedEmail())
+            ->from(new Address('miCorreo@gmail.com'))
+            ->to(new Address($reservante->getEmail(), $reservante->getNombre()))
+            ->subject('Confirmación de reserva')
+            ->htmlTemplate('email/reserva.html.twig')
+            ->context([
+                'reservante' => $reservante,
+                'invitados' => 0,
+                'base' => $this->handlerMetabase->metadatos()
+            ]);
+
+        $this->mailer->send($email);
+
+        return $email;
+    }
+
 }
