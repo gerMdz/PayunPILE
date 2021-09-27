@@ -12,33 +12,37 @@
                 <div class="table-responsive ">
                     <table class="table table-responsive-sm table-striped ">
                         <thead>
-                        <tr class="text-center">
+                        <tr class="text-left">
                             <th>Id</th>
-                            <th>Lema</th>
-                            <th>Lema Principal</th>
+                            <th>Lema <br/>
+                                <small>Lema Principal</small></th>
                             <th>Meta Descripcion</th>
                             <th>Meta Autor</th>
                             <th>Meta Title</th>
-                            <th>Meta Type</th>
-                            <th>Meta Url</th>
+                            <th>Meta Type <br/>
+                                <small>Meta Url</small></th>
                             <th>Site Name</th>
-                            <th>Site mail</th>
-                            <th>acciones</th>
+                            <th>Site mail <br/>
+                                <small>Mail replay</small></th>
+                            <th>Unidad reserva</th>
+                            <th><i class="fa fa-cogs"></i> </th>
                         </tr>
                         </thead>
                         <tbody>
                         {% for meta_base in meta_bases %}
-                            <tr>
+                            <tr class="text-left">
                                 <td>{{ meta_base.id }}</td>
-                                <td>{{ meta_base.lema }}</td>
-                                <td>{{ meta_base.lemaPrincipal }}</td>
+                                <td>{{ meta_base.lema }} <br/>
+                                    <small>{{ meta_base.lemaPrincipal }}</small></td>
                                 <td>{{ meta_base.metaDescripcion }}</td>
                                 <td>{{ meta_base.metaAutor }}</td>
                                 <td>{{ meta_base.metaTitle }}</td>
-                                <td>{{ meta_base.metaType }}</td>
-                                <td>{{ meta_base.metaUrl }}</td>
+                                <td>{{ meta_base.metaType }} <br/>
+                                    <small>{{ meta_base.metaUrl }}</small></td>
                                 <td>{{ meta_base.siteName | default('Reserva') }}</td>
-                                <td>{{ meta_base.emailBase| default('No tiene') }}</td>
+                                <td>{{ meta_base.emailBase| default('No tiene') }} <br/>
+                                    <small>{{ meta_base.emailReply| default('No tiene') }}</small></td>
+                                <td>{{ meta_base.unidadReserva| default('No tiene') }}</td>
                                 <td>
                                     <a href="{{ path('meta_base_edit', {'id': meta_base.id}) }}">
                                         {{ include('bases/_editar.html.twig') }}

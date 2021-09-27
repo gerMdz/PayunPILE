@@ -66,6 +66,16 @@ class MetaBase
      */
     private ?string $emailBase;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $emailReply;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $unidadReserva;
+
     public function __construct()
     {
         $this->base = 'index';
@@ -192,6 +202,30 @@ class MetaBase
     public function setEmailBase(string $emailBase): self
     {
         $this->emailBase = $emailBase;
+
+        return $this;
+    }
+
+    public function getEmailReply(): ?string
+    {
+        return $this->emailReply;
+    }
+
+    public function setEmailReply(?string $emailReply): self
+    {
+        $this->emailReply = $emailReply;
+
+        return $this;
+    }
+
+    public function getUnidadReserva(): ?string
+    {
+        return $this->unidadReserva;
+    }
+
+    public function setUnidadReserva(?string $unidadReserva): self
+    {
+        $this->unidadReserva = $unidadReserva;
 
         return $this;
     }
