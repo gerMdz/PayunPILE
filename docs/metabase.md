@@ -1,33 +1,18 @@
 ## Bienvenido a PayunPILE
-### Correos
+### Metabase
 
-El texto de los correos aún no son editables desde la aplicación.
-Las modificaciones deben hacerse directamente desde las plantillas
-de mail ubicadas en
+La configuración de las unidades de reservas y los mails 
+tanto del sitio como de respuestas se configuran desde la metabase
+que también almacena todos los datos que se muestran 
+en los head de la página principal
 ```
-templates/email
+admin/metabase/
 ```
-`
-templates/email/reserva.html.twig
-`
-```
-<a href="{{ base.metaUrl }}">
-  <img src="{{ email.image('@images/logo-mail.png') }}"  class="logo" alt="{{ reservante.celebracion.nombre }}">
-</a>
-```
-
-Las platillas son llamadas desde el servicio Mailer
-```
-src/Service/Mailer.php
-```
-Este es el archivo que debe modificar si desea cambiar de 
-plantilla principal de reservas.
-
-Se basan en [Twig][11]
+La idea es que siempre se haga referencia a esas configuraciones básicas
 
 ##### Pasos siguientes
 
-- Configuración de cuerpos-amil con unidades-reserva 
+- Aún no se completa la segunda parte de las unidades
 
 #### Menú
 [Volver al inicio][10]

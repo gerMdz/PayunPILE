@@ -66,10 +66,11 @@ Apache para ejecutar la aplicación.
 - [x] Logo de la página [ver][9]
 - [x] Smtp de envío de los mails [ver][11]
 - [x] Configurar el cron para la cola de envíos [ver](https://germdz.github.io/PayunPILE/queue)
-- [x] Qué se reserva (asientos, lugar) en qué (reuniones, grupos)
-- [x] Mail del sitio (si no fallará el envío de mail)
+- [x] Qué se reserva (asientos, lugar) en qué (reuniones, grupos) [ver][12]
+- [x] Mail del sitio (si no fallará el envío de mail) [ver][12]
 - [x] Creación de colas de envíos
 - [x] Creación de tareas de cron
+- [x] Configuración de cuerpos-mail con unidades de reserva
 
 
 Tests
@@ -126,3 +127,4 @@ Uso [PhpStorm][5]
 [9]: https://germdz.github.io/PayunPILE/logos-e-imagenes
 [10]: https://germdz.github.io/PayunPILE/correos
 [11]: https://germdz.github.io/PayunPILE/smtp
+[12]: https://germdz.github.io/PayunPILE/metabase
