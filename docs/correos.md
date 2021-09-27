@@ -27,7 +27,7 @@ Se basan en [Twig][11]
 
 ##### Pasos siguientes
 
-- Configuración de cuerpos-amil con unidades-reserva 
+- Configuración de cuerpos-mail con unidades-reserva 
 
 #### Menú
 [Volver al inicio][10]
