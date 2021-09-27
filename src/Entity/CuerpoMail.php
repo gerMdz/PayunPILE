@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\CuerpoMailRepository;
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -54,10 +53,7 @@ class CuerpoMail
         return $this->nombre;
     }
 
-    public function __construct()
-    {
-        $this->celebracion = new ArrayCollection();
-    }
+
 
     public function getId(): ?int
     {
@@ -136,33 +132,4 @@ class CuerpoMail
         return $this;
     }
 
-    /**
-     * @return Collection|Celebracion[]
-     */
-    public function getCelebracion(): Collection
-    {
-        return $this->celebracion;
-    }
-
-    public function addCelebracion(Celebracion $celebracion): self
-    {
-        if (!$this->celebracion->contains($celebracion)) {
-            $this->celebracion[] = $celebracion;
-            $celebracion->setCuerpoMail($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCelebracion(Celebracion $celebracion): self
-    {
-        if ($this->celebracion->removeElement($celebracion)) {
-            // set the owning side to null (unless already changed)
-            if ($celebracion->getCuerpoMail() === $this) {
-                $celebracion->setCuerpoMail(null);
-            }
-        }
-
-        return $this;
-    }
 }

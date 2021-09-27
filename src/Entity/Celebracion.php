@@ -4,7 +4,6 @@ namespace App\Entity;
 
 use App\Entity\Traits\OfertTrait;
 use App\Repository\CelebracionRepository;
-use DateTime;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -27,7 +26,7 @@ class Celebracion
      * @ORM\GeneratedValue(strategy="CUSTOM")
      * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidGenerator")
      */
-    protected $id;
+    protected ?string $id;
 
     /**
      * @ORM\Column(type="datetime")
@@ -53,12 +52,12 @@ class Celebracion
     /**
      * @ORM\OneToMany(targetEntity=Reservante::class, mappedBy="celebracion")
      */
-    private $reservantes;
+    private ArrayCollection $reservantes;
 
     /**
      * @ORM\OneToMany(targetEntity=Invitado::class, mappedBy="celebracion")
      */
-    private $invitados;
+    private ArrayCollection $invitados;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -78,12 +77,18 @@ class Celebracion
     /**
      * @ORM\OneToMany(targetEntity=WaitingList::class, mappedBy="celebracion")
      */
-    private $waitingLists;
+    private ArrayCollection $waitingLists;
 
     /**
      * @ORM\ManyToMany(targetEntity=GroupCelebration::class, mappedBy="celebraciones")
      */
-    private $groupCelebrations;
+    private ArrayCollection $groupCelebrations;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=CuerpoMail::class)
+     */
+    private $cuerpoMail;
+
 
     public function __toString()
     {
@@ -99,6 +104,7 @@ class Celebracion
         $this->invitados = new ArrayCollection();
         $this->waitingLists = new ArrayCollection();
         $this->groupCelebrations = new ArrayCollection();
+        $this->cuerpoMail = new ArrayCollection();
     }
 
 
@@ -295,7 +301,7 @@ class Celebracion
     }
 
 
-    public function getGroupCelebrations()
+    public function getGroupCelebrations(): ArrayCollection
     {
         return $this->groupCelebrations;
     }
@@ -319,17 +325,33 @@ class Celebracion
         return $this;
     }
 
-    public function getCuerpoMail(): ?CuerpoMail
+    /**
+     * @return Collection|CuerpoMail[]
+     */
+    public function getCuerpoMail(): Collection
     {
         return $this->cuerpoMail;
     }
 
-    public function setCuerpoMail(?CuerpoMail $cuerpoMail): self
+    public function addCuerpoMail(CuerpoMail $cuerpoMail): self
     {
-        $this->cuerpoMail = $cuerpoMail;
+        if (!$this->cuerpoMail->contains($cuerpoMail)) {
+            $this->cuerpoMail[] = $cuerpoMail;
+        }
 
         return $this;
     }
+
+    public function removeCuerpoMail(CuerpoMail $cuerpoMail): self
+    {
+        $this->cuerpoMail->removeElement($cuerpoMail);
+
+        return $this;
+    }
+
+
+
+
 
 
 }

@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\MetaBase;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -25,6 +26,18 @@ class MetaBaseType extends AbstractType
                 'invalid_message'=>'Por favor ingrese email que identifica al sitio',
                 'attr'=>[
                     'placeholder'=> 'Email del sitio'
+                ]
+            ])
+            ->add('emailReply',EmailType::class,[
+                'invalid_message'=>'Por favor ingrese email para respuesta de mail',
+                'attr'=>[
+                    'placeholder'=> 'Email de replay'
+                ]
+            ])
+            ->add('unidadReserva', TextType::class, [
+                'label' => ' Unidad a reservar',
+                'attr'=>[
+                    'placeholder'=> 'Unidad a reservar'
                 ]
             ])
         ;
