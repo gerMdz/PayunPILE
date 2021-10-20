@@ -10,6 +10,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use IntlDateFormatter;
+use App\Entity\Reservante;
 
 /**
  * @ORM\Entity(repositoryClass=CelebracionRepository::class)
@@ -52,12 +53,12 @@ class Celebracion
     /**
      * @ORM\OneToMany(targetEntity=Reservante::class, mappedBy="celebracion")
      */
-    private ArrayCollection $reservantes;
+    private Collection $reservantes;
 
     /**
      * @ORM\OneToMany(targetEntity=Invitado::class, mappedBy="celebracion")
      */
-    private ArrayCollection $invitados;
+    private Collection $invitados;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -77,17 +78,17 @@ class Celebracion
     /**
      * @ORM\OneToMany(targetEntity=WaitingList::class, mappedBy="celebracion")
      */
-    private ArrayCollection $waitingLists;
+    private Collection $waitingLists;
 
     /**
      * @ORM\ManyToMany(targetEntity=GroupCelebration::class, mappedBy="celebraciones")
      */
-    private ArrayCollection $groupCelebrations;
+    private Collection $groupCelebrations;
 
     /**
      * @ORM\ManyToMany(targetEntity=CuerpoMail::class)
      */
-    private $cuerpoMail;
+    private Collection $cuerpoMail;
 
 
     public function __toString()
