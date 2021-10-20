@@ -4,45 +4,51 @@
 {% block stylesheets %}
     {{ parent() }}
     {{ encore_entry_link_tags('loginStyle') }}
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+    <link rel="stylesheet" href="{{ asset('stream-ui-kit/assets/css/styles.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/login.css') }}">
 {% endblock %}
 
 {% block sections %}
-    <form class="form-signin" method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+    <div class="row mt-2">
+        <div class="col-sm-6 mx-auto">
+            <form class="form-signin" method="post">
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            Usted a ingresado como {{ app.user.username }}, <a href="{{ path('app_logout') }}">Salir</a>
+                {% if app.user %}
+                    <div class="mb-3">
+                        Usted a ingresado como {{ app.user.username }}, <a href="{{ path('app_logout') }}">Salir</a>
+                    </div>
+                {% endif %}
+
+                <h1 class="h3 mb-3 font-weight-normal">Por favor, ingrese</h1>
+                <label for="inputEmail">Email</label>
+                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control"
+                       required
+                       autofocus>
+                <label for="inputPassword">Contraseña</label>
+                <input type="password" name="password" id="inputPassword" class="form-control" requerido>
+
+                <input type="hidden" name="_csrf_token"
+                       value="{{ csrf_token('authenticate') }}"
+                >
+
+                {#
+                Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                See https://symfony.com/doc/current/security/remember_me.html
+                #}
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" name="_remember_me"> Recuérdame
+                    </label>
+                </div>
+                <button class="btn btn-lg btn-primary" type="submit">
+                    Ingresar
+                </button>
+            </form>
         </div>
-    {% endif %}
-
-    <h1 class="h3 mb-3 font-weight-normal">Por favor, ingrese</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
-    <label for="inputPassword">Contraseña</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" requerido>
-
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
-
-    {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
-    #}
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Recuérdame
-            </label>
-        </div>
-    <button class="btn btn-lg btn-primary" type="submit">
-        Ingresar
-    </button>
-</form>
+    </div>
 {% endblock %}
 {% block javascripts %}
     {{ encore_entry_script_tags('app') }}

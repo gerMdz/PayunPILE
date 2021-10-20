@@ -16,18 +16,24 @@
                     <script>
                         document.write(new Date().getFullYear())
                     </script>
-                    <a href="{{ path('index') }}" target="_blank">{{ base.siteName |default('Reservas')}}</a>
+                    <a href="{{ path('index') }}" target="_blank">{{ base.siteName |default('Reservas') }}</a>
                 </div>
             </div>
 
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <ul class="social-icons">
-                    <li><a class="facebook" href="https://www.facebook.com/IglesiaAlameda"><i
-                                    class="fa fa-facebook"></i></a></li>
-                    <li><a class="youtube" href="https://youtube.com/user/IglesiaAlameda"><i class="fa fa-youtube"></i></a>
+                    <li><a class="facebook" href="#">
+                            <i class="fab fa-facebook"></i>
+                        </a></li>
+                    <li><a class="youtube" href="#">
+                            <i class="fab fa-youtube"></i>
+                        </a>
                     </li>
-                    <li><a class="instagram" href="https://www.instagram.com/iglesialameda"><i
-                                    class="fa fa-instagram"></i></a></li>
+                    <li>
+                        <a class="instagram" href="#">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
