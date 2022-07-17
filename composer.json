@@ -9,8 +9,8 @@
             "email": "gerardo.montivero@gmail.com"
         },
         {
-            "name": "Grape Web Services",
-            "homepage": "https://ar-gws.com"
+            "name": "Ascendig",
+            "homepage": "https://ascendig.ar"
         }
     ],
     "require": {
@@ -29,7 +29,7 @@
         "gedmo/doctrine-extensions": "^2.4",
         "hashids/hashids": "^4.1",
         "knplabs/knp-paginator-bundle": "^5.2",
-        "knplabs/knp-snappy-bundle": "^1.8",
+        "knplabs/knp-snappy-bundle": "^v1.7.1",
         "knplabs/knp-time-bundle": "^1.11",
         "laminas/laminas-code": "^3.4",
         "laminas/laminas-eventmanager": "^3.2",
@@ -41,23 +41,23 @@
         "ramsey/uuid-doctrine": "^1.6",
         "sensio/framework-extra-bundle": "^5.5",
         "symfony/apache-pack": "^1.0",
-        "symfony/asset": "4.4.*",
-        "symfony/console": "4.4.*",
-        "symfony/dotenv": "4.4.*",
+        "symfony/asset": "5.0.*",
+        "symfony/console": "5.0.*",
+        "symfony/dotenv": "5.0.*",
         "symfony/flex": "^1.3.1",
-        "symfony/form": "4.4.*",
-        "symfony/framework-bundle": "4.4.*",
-        "symfony/intl": "4.4.*",
-        "symfony/mailer": "4.4.*",
+        "symfony/form": "5.0.*",
+        "symfony/framework-bundle": "5.0.*",
+        "symfony/intl": "5.0.*",
+        "symfony/mailer": "5.0.*",
         "symfony/polyfill-php72": "^1.15",
-        "symfony/property-access": "4.4.*",
-        "symfony/property-info": "4.4.*",
-        "symfony/security-bundle": "4.4.*",
-        "symfony/serializer": "4.4.*",
-        "symfony/twig-bundle": "4.4.*",
-        "symfony/validator": "4.4.*",
+        "symfony/property-access": "5.0.*",
+        "symfony/property-info": "5.0.*",
+        "symfony/security-bundle": "5.0.*",
+        "symfony/serializer": "5.0.*",
+        "symfony/twig-bundle": "5.0.*",
+        "symfony/validator": "5.0.*",
         "symfony/webpack-encore-bundle": "^1.7",
-        "symfony/yaml": "4.4.*",
+        "symfony/yaml": "5.0.*",
         "twig/cssinliner-extra": "^3.1",
         "twig/extensions": "^1.5",
         "twig/extra-bundle": "^3.1",
@@ -71,9 +71,9 @@
         "symfony/maker-bundle": "^1.30",
         "symfony/monolog-bundle": "^3.0",
         "symfony/phpunit-bridge": "^5.3",
-        "symfony/stopwatch": "^4.4",
+        "symfony/stopwatch": "^5.0",
         "symfony/var-dumper": "*",
-        "symfony/web-profiler-bundle": "^4.4"
+        "symfony/web-profiler-bundle": "^5.0"
     },
     "config": {
         "preferred-install": {
@@ -117,7 +117,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": true,
-            "require": "4.4.*"
+            "require": "5.0.*"
         },
         "public-dir": "public"
     }
