@@ -20,7 +20,7 @@ class CelebracionType extends AbstractType
                 'widget' => 'single_text',
                 'html5' => true,
                 'required' => false,
-                'format' => 'yyyy-MM-dd HH:mm',
+//                'format' => 'yyyy-MM-dd HH:mm',
                 'attr' => ['class' => 'datetimepicker']
             ])
             ->add('nombre')
@@ -28,17 +28,17 @@ class CelebracionType extends AbstractType
             ->add('disponibleAt', DateTimeType::class,[
                 'label'=>'Disponible desde',
                 'widget' => 'single_text',
-                'html5' => false,
+                'html5' => true,
                 'required' => false,
-                'format' => 'yyyy-MM-dd HH:mm',
+//                'format' => 'yyyy-MM-dd HH:mm',
                 'attr' => ['class' => 'datetimepicker']
             ])
             ->add('disponibleHastaAt', DateTimeType::class,[
                 'label'=>'Disponible hasta',
                 'widget' => 'single_text',
-                'html5' => false,
+                'html5' => true,
                 'required' => false,
-                'format' => 'yyyy-MM-dd HH:mm',
+//                'format' => 'yyyy-MM-dd HH:mm',
                 'attr' => [
                     'class' => 'datetimepicker',
                     ]
