@@ -15,7 +15,7 @@ use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 class ProcesaDelayCommand extends Command
 {
     protected static $defaultName = 'app:procesa-delay';
-    protected static string $defaultDescription = 'Procesa los datos de delayMail';
+//    protected static string $defaultDescription = 'Procesa los datos de delayMail';
 
     private HandlerDelayMail $delayMail;
     private MailerReport $mailerReport;
@@ -23,7 +23,7 @@ class ProcesaDelayCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription(self::$defaultDescription)
+            ->setDescription('Procesa los datos de delayMail')
             ->addArgument('arg1', InputArgument::OPTIONAL, 'Argument description')
             ->addOption('option1', null, InputOption::VALUE_NONE, 'Option description')
         ;

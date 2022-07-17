@@ -129,9 +129,6 @@
     "imagine/imagine": {
         "version": "1.2.3"
     },
-    "khanamiryan/qrcode-detector-decoder": {
-        "version": "1.0.3"
-    },
     "knplabs/knp-components": {
         "version": "v2.3.6"
     },
