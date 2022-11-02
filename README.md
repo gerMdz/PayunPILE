@@ -91,6 +91,12 @@ Control + Alt + m
 >Opera 	Shift + Esc abre una lista de contenidos, los cuales son accesibles a través de accesskey, después se puede elegir un item presionando m
 
 
+###### Gracias
+
+[SymfonyCasts](https://symfonycasts.com/screencast/mailer/sender-authentication)
+
+
+
 #### PayunPILE se base en
 - [Symfony][1] framework PHP.
 - [Bootstrap](https://getbootstrap.com/) plantillas.
