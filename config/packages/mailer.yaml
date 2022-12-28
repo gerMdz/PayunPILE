@@ -1,3 +1,6 @@
 framework:
     mailer:
         dsn: '%env(MAILER_DSN)%'
+    envelop:
+        sender: 'yo@ejemplo.com'
+        recipients: ['redirect@ejemplo.com']
