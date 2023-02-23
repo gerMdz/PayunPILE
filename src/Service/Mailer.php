@@ -154,7 +154,7 @@ class Mailer
 //        $invitados = $this->repository->count(['enlace' => $reservante->getId()]);
 
         $email = (new TemplatedEmail())
-            ->from(new Address('miCorreo@gmail.com'))
+
             ->to(new Address($reservante->getEmail(), $reservante->getNombre()))
             ->subject('Confirmación de reserva')
             ->htmlTemplate('email/reserva.html.twig')
