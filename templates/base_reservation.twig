@@ -36,6 +36,7 @@
     {% endblock %}
 
     {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
         <link rel="stylesheet" type="text/css"
               href="{{ asset('stream-ui-kit/assets/vendors/slick-carousel/slick.css') }}">
         {# <link rel="stylesheet" type="text/css" href="{{ asset('stream-ui-kit/assets/css/styles.css') }}"> #}
@@ -47,6 +48,9 @@
                 font-family: 'ArialNova', "proxima-nova", "Helvetica Neue", sans-serif !important;
             }
         </style>
+
+
+
     {% endblock %}
 
 </head>
@@ -91,6 +95,7 @@
 {% endblock %}
 
 {% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
     <script src="https://kit.fontawesome.com/743c9941eb.js" crossorigin="anonymous"></script>
     <script src="{{ asset('material-kit/js/core/jquery.min.js') }}"></script>
     <script src="{{ asset('material-kit/js/core/popper.min.js') }}"></script>
@@ -127,6 +132,8 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
     <script src="{{ asset('material-kit/js/material-kit.js') }}?v=2.0.4" type="text/javascript"></script>
+
+
 
 {% endblock %}
 
