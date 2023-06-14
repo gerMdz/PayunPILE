@@ -1,0 +1,31 @@
+{% apply inky_to_html|inline_css(encore_entry_css_source('email')) %}
+    <container>
+        <row class="header">
+            <columns>
+                <a href="{{ url('app_homepage') }}">
+                    <img src="{{ email.image('@images/email/logo.png') }}" class="logo" alt="SpaceBar Logo">
+                </a>
+            </columns>
+        </row>
+
+        {% block content %}
+        {% endblock %}
+
+        <row class="footer">
+            <columns>
+                <p>Cheers,</p>
+                <p>Your friendly <em>Space Bar Team</em></p>
+            </columns>
+        </row>
+        <row class="bottom">
+            <columns>
+                <center>
+                    <spacer size="20"></spacer>
+                    <div>
+                        Sent with ❤️ from the friendly folks at The Space Bar
+                    </div>
+                </center>
+            </columns>
+        </row>
+    </container>
+{% endapply %}
