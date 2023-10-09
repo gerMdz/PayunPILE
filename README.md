@@ -93,7 +93,7 @@ Control + Alt + m
 
 ###### Gracias
 
-[SymfonyCasts](https://symfonycasts.com/screencast/mailer/sender-authentication)
+[SymfonyCasts](https://symfonycasts.com/screencast/mailer/encore-css#play)
 
 
 
