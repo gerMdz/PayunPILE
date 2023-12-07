@@ -9,6 +9,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use InvalidArgumentException;
 use Psr\Container\ContainerInterface;
 use Symfony\Contracts\Service\ServiceSubscriberInterface;
+use Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
@@ -17,16 +18,20 @@ class BaseExtension extends AbstractExtension implements ServiceSubscriberInterf
 {
     protected $em;
     private $container;
+    private string $publicDir;
 
     /**
      * BaseExtension constructor.
      * @param EntityManagerInterface $em
      * @param ContainerInterface $container
+     * @param string $publicDir
      */
-    public function __construct(EntityManagerInterface $em, ContainerInterface $container)
+    public function __construct(
+        EntityManagerInterface $em, ContainerInterface $container, string $publicDir)
     {
         $this->em = $em;
         $this->container = $container;
+        $this->publicDir = $publicDir;
     }
 
     public function getFilters(): array
@@ -49,13 +54,14 @@ class BaseExtension extends AbstractExtension implements ServiceSubscriberInterf
             new TwigFunction('capacidad_restante', [$this, 'capacidad_restante']),
             new TwigFunction('capacidad_ocupada', [$this, 'capacidad_ocupada']),
             new TwigFunction('redirection', [$this, 'redirection']),
+            new TwigFunction('encore_entry_css_source', [$this, 'getEncoreEntryCssSource']),
         ];
     }
 
     public function lema()
     {
         $lema = $this->em->getRepository(MetaBase::class)->findOneBy([]);
-        if(!$lema){
+        if (!$lema) {
             return null;
         }
         return $lema->getLema();
@@ -65,7 +71,7 @@ class BaseExtension extends AbstractExtension implements ServiceSubscriberInterf
     {
         $base = $this->em->getRepository(MetaBase::class)->findOneBy([]);
 
-        if(!$base){
+        if (!$base) {
             return null;
         }
 
@@ -103,6 +109,7 @@ class BaseExtension extends AbstractExtension implements ServiceSubscriberInterf
         return [
             UploaderHelper::class,
             EntityManagerInterface::class,
+            EntrypointLookupInterface::class
         ];
     }
 
@@ -114,5 +121,18 @@ class BaseExtension extends AbstractExtension implements ServiceSubscriberInterf
 
         echo "<meta http-equiv = 'refresh' content='0;url = $link' />";
 
+    }
+
+    public function getEncoreEntryCssSource(string $entryName): string
+    {
+        $entryPointLookupInterface = $this->container->get(EntrypointLookupInterface::class);
+        $entryPointLookupInterface->reset();
+        $files = $entryPointLookupInterface->getCssFiles($entryName);
+        $source = '';
+        foreach ($files as $file) {
+            $source .= file_get_contents($this->publicDir . $file);
+        }
+
+        return $source;
     }
 }
