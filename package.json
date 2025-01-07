@@ -32,6 +32,7 @@
         "ckeditor4": "ckeditor/ckeditor4-releases#full/latest",
         "ckeditor5": "^21.0.0",
         "codemirror": "^5.59.0",
+        "debug": "^4.3.3",
         "jquery": "^3.5.0",
         "popper.js": "^1.16.1",
         "postcss": "^8.4.31",
