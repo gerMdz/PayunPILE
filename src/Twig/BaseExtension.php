@@ -16,22 +16,20 @@ use Twig\TwigFunction;
 
 class BaseExtension extends AbstractExtension implements ServiceSubscriberInterface
 {
-    protected $em;
-    private $container;
+    protected EntityManagerInterface $em;
+    private ContainerInterface $container;
     private string $publicDir;
 
     /**
      * BaseExtension constructor.
      * @param EntityManagerInterface $em
      * @param ContainerInterface $container
-     * @param string $publicDir
      */
     public function __construct(
-        EntityManagerInterface $em, ContainerInterface $container, string $publicDir)
+        EntityManagerInterface $em, ContainerInterface $container)
     {
         $this->em = $em;
         $this->container = $container;
-        $this->publicDir = $publicDir;
     }
 
     public function getFilters(): array
@@ -130,7 +128,7 @@ class BaseExtension extends AbstractExtension implements ServiceSubscriberInterf
         $files = $entryPointLookupInterface->getCssFiles($entryName);
         $source = '';
         foreach ($files as $file) {
-            $source .= file_get_contents($this->publicDir . $file);
+            $source .= file_get_contents($this->publicDir . '/' . $file);
         }
 
         return $source;
